@@ -7,27 +7,16 @@ These exercises are basic introductory files run in PowerShell or terminal to de
 
 ### exl.py
 Simple printing exercises with lines commented out.
-
-## Motivation
-
-Gotta get that Dolla Bill yallllllll
-
-## Installation
-
-Basic Python IDE setup. Download Python from their website and navigate to this directory. Use the "python [filename.py]" command to run these files.
-
-## API Reference
-
-Default packages only, so far.
+These exercises are from "Learning Python the Hard Way" to demonstrate and perfect Python code.
 
 ## Tests
 
-None so far.
+None so far
 
 ## Contributers
 
-Charles LeBron James Johnson Bradshaw with that payroll
+Zed Shaw, author
 
 ## License
 
-I do what I want
+Noncommercial Fair Use
