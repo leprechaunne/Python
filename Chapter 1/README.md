@@ -10,7 +10,11 @@ Simple printing exercises with lines commented out.
 These exercises are from "Learning Python the Hard Way" to demonstrate and perfect Python code.
 ###ex2.py
 Basic commenting structure and importance.
+###ex3.py
+Basic mathematical operations. Sort of poorly formatted, but I think that was largely the point. 
+The messy equations help solidify how python Order of Operations works.
+####ex3_extra.py
+Just a random math problem, as prompted by the study drills section.
 
 ## Tests
-
 None so far

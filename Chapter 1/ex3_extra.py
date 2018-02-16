@@ -1,0 +1,1 @@
+print("What is the modulus of 18.57 mod 3.2?", 18.57%3.2)
