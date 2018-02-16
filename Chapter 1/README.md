@@ -14,7 +14,9 @@ Basic commenting structure and importance.
 Basic mathematical operations. Sort of poorly formatted, but I think that was largely the point. 
 The messy equations help solidify how python Order of Operations works.
 ####ex3_extra.py
-Just a random math problem, as prompted by the study drills section.
+	Just a random math problem, as prompted by the study drills section.
+###ex4.py
+Practical example of calculations using variables and clean outputs.
 
 ## Tests
 None so far
