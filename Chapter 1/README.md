@@ -24,6 +24,7 @@ Use of the String.format() function and concatanation
 ###ex7.py, ex8.py, ex9.py
 The author admitted these are fairly similar and don't require explicit explanation. Just more printing.
 ###ex10.py
+Use of encoded characters (such as \n)
 
 ## Tests
 None so far
