@@ -1,7 +1,7 @@
 # Python
 ## Synopsis
 
-These exercises are basic introductory files run in PowerShell or terminal to demonstrate basic Python concepts.
+These exercises are basic introductory files run in PowerShell or terminal or shell to demonstrate basic Python concepts.
 
 ## Code Example
 
@@ -25,6 +25,8 @@ Use of the String.format() function and concatanation
 The author admitted these are fairly similar and don't require explicit explanation. Just more printing.
 ###ex10.py
 Use of encoded characters (such as \n)
+###ex11.py
+First use of input()
 
 ## Tests
 None so far
