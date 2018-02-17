@@ -17,6 +17,13 @@ The messy equations help solidify how python Order of Operations works.
 	Just a random math problem, as prompted by the study drills section.
 ###ex4.py
 Practical example of calculations using variables and clean outputs.
+###ex5.py
+Set and evaluate constants in line with the f"String {Varliable} String"
+###ex6.py
+Use of the String.format() function and concatanation
+###ex7.py, ex8.py, ex9.py
+The author admitted these are fairly similar and don't require explicit explanation. Just more printing.
+###ex10.py
 
 ## Tests
 None so far
