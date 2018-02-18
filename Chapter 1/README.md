@@ -25,8 +25,14 @@ Use of the String.format() function and concatanation
 The author admitted these are fairly similar and don't require explicit explanation. Just more printing.
 ###ex10.py
 Use of encoded characters (such as \n)
-###ex11.py
+###ex11.py & 12
 First use of input()
+###ex13.py
+First variable input in batch line
+###ex14.py
+Mixing in command line and in-program videos
+###ex15.py
+Reading text files
 
 ## Tests
 None so far
