@@ -3,22 +3,25 @@ from os.path import exists
 
 script, from_file, to_file = argv
 
-print(f"Copying from {from_file} to {to_file}")
+# print(f"Copying from {from_file} to {to_file}")
 
-# we could do these two on one line, how?
-in_file = open(from_file)
-indata = in_file.read()
+# # we could do these two on one line, how?
+# in_file = open(from_file)
+# indata = in_file.read()
 
-print(f"The input file is {len(indata)} characters long") # the instructor said bytes, but it measures character length
+# print(f"The input file is {len(indata)} characters long") # the instructor said bytes, but it measures character length
 
-print(f"Does the output file exists? {exists(to_file)}")
-print("Ready, hit RETURN to continue, CTRL+C to abort.")
-input()
+# print(f"Does the output file exists? {exists(to_file)}")
+# print("Ready, hit RETURN to continue, CTRL+C to abort.")
+# input()
 
-out_file = open(to_file, 'w')
-out_file.write(indata)
+# out_file = open(to_file, 'w')
+# out_file.write(indata)
 
-print("Alright, all done.")
+# print("Alright, all done.")
 
-out_file.close()
-in_file.close()
+# out_file.close()
+# in_file.close()
+
+# One line?
+iostream = open(to_file, 'w'); iostream.write(open(from_file).read()); iostream.close()

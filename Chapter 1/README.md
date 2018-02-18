@@ -37,6 +37,10 @@ Reading text files
 File deleting and rewriting.
 ### ex17.py
 Replace contents of one file with the contents of another (much like an installation program would do)
+### ex18.py
+Introduction to functions
+### ex19.py
+Different ways to call functions
 
 
 ## Tests
