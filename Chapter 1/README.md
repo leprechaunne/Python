@@ -53,6 +53,9 @@ Recursive reading of a utf-8 encoded file
 Just a review of the past 23 lessons
 ### ex25.py
 Calling functions of an imported package (that I created) through command line. Also pop() 
+### ex26.py
+TEST!!!!!!
+
 
 
 ## Tests
