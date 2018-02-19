@@ -55,7 +55,9 @@ Just a review of the past 23 lessons
 Calling functions of an imported package (that I created) through command line. Also pop() 
 ### ex26.py
 TEST!!!!!!
-
+### ex27.py
+Calculates the results for my quiz on boolean logic (90%)
+### ex28.py
 
 
 ## Tests
