@@ -45,6 +45,11 @@ Different ways to call functions
 Calling functions to edit files
 ### ex21.py
 Functions with returns and nested function use
+### ex22.py
+Supposed to be a scavenger hunt for all the keywords used thus far, but the README is essentially that.
+### ex23.py
+Recursive reading of a utf-8 encoded file
+### ex24.py
 
 ## Tests
 None so far
