@@ -65,6 +65,10 @@ Boolean 'if' statements
 If-elif-else blocks
 ### ex31.py
 The first TBA!
+### ex32.py
+For loops 
+### ex33.py
+While loops
 
 ## Tests
 None so far
