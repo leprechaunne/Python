@@ -69,6 +69,8 @@ The first TBA!
 For loops 
 ### ex33.py
 While loops
+### ex34.py
+On lists and indices
 
 ## Tests
 None so far
