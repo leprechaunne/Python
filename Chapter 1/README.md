@@ -71,6 +71,8 @@ For loops
 While loops
 ### ex34.py
 On lists and indices
+### ex35.py
+Updated TBA with more method calls
 
 ## Tests
 None so far
