@@ -73,6 +73,11 @@ While loops
 On lists and indices
 ### ex35.py
 Updated TBA with more method calls
+### ex36.py
+Should be a random TBA, but I'm more invested in learning new code
+### no ex37.py
+### ex38.py
+Using various list commands
 
 ## Tests
 None so far
