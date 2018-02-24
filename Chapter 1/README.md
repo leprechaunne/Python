@@ -78,6 +78,8 @@ Should be a random TBA, but I'm more invested in learning new code
 ### no ex37.py
 ### ex38.py
 Using various list commands
+### ex39.py
+Dictionaries in lists
 
 ## Tests
 None so far
