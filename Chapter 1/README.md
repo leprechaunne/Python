@@ -80,6 +80,8 @@ Should be a random TBA, but I'm more invested in learning new code
 Using various list commands
 ### ex39.py
 Dictionaries in lists
+### ex40.py
+Introduction to classes
 
 ## Tests
 None so far
