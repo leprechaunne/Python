@@ -82,6 +82,9 @@ Using various list commands
 Dictionaries in lists
 ### ex40.py
 Introduction to classes
+### ex41.py
+Not honestly too sure what this one does. It's overly convoluted and the author provides no comments, making it the perfect example of what not to do with code.
+
 
 ## Tests
 None so far
