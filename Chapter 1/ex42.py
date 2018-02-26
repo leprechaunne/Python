@@ -1,93 +1,61 @@
-###########################################
-###########################################
-###########################################
-class Scene(object):
+#-----------	Object>Animal
+## Animal is-a object
+class Animal(object):
+	def __init__(self, name):
+		## ??
+		self.name = name
 
-	def enter(self):
-		print(f"{self} has not yet been implemented.")
-		exit(1)
+##----------	Object>Animal>Dog
+class Dog(Animal):
+	pass
 
-###########################################
-###########################################
-###########################################
-class Engine(object):
+#----------		Object>Animal>Cat		
+class Cat(Animal):
+	pass
 
-	def __init__(self, scene_map):
-		self.scene_map = scene_map
+#---------		Object>Animal>Person	
+class Person(object):
 
-	def play(self):
-		current_scene = self.scene_map.opening_scene()
-		last_scene = self.scene_map.next_scene('finished')
+	def __init__(self, name):
+		super(Person, self).__init__()
+		## Person has a pet of some kind
+		self.pet = None
 
-		while current_scene != last_scene:
-			next_scene_name = current_scene.enter()
-			current_scene - self.scene_map.next_scene(next_scene_name)
+##--------	Object>Animal>Person>
+class Employee(Person):
 
-		#print last
-		current_scene.enter()
+	def __init__(self, name, salary):
+		## ?? hmm what is this strange magic?
+		super(Employee, self).__init__(name)
+		## ??
+		self.salary = salary
 
-###########################################
-class Death(Scene):
+## ??
+class Fish(object):
+	pass
 
-	quips = [
-		"You died. You kinda suck at this.",
-		"Your Mom would be proud... if she were smarter.",
-		"Git gud.",
-		"I have a small puppy that's better at this.",
-		"You're worse than your Dad's jokes."
-	]
+## ??
+class Salmon(Fish):
+	pass
 
-	def enter(self):
-		print(Death.quips[randint(0, len(self.quips)-1)])
-		exit(1)
+class Halibut(Fish):
+	pass
 
-###########################################
-class CentralCorridor(Scene):
+#actual code
+rover = Dog("Rover")
 
-	def enter(self):
-		print(dedent("""
-			The Gothons of Planet Percal #25 have invaded your ship and
-			destroyed your entire crew. You are the last surviving 
-			member and your last mission is to get the neutron destroyer
-			bomb from the Weapons Armory, put it in the bridge, and
-			blow the ship up after getting into an escape pod.
+satan = Cat("Satan")
 
-			You're running down the central corridor to the Weapons
-			Armory when a Gothon jumps out, red scaly skin, dark grimy 
-			teeth, and evil clow costume flowing around his hate-
-			filled body. He's blocking the door to the Armory and
-			about to pull a weapon to blast you.
-			"""))
+mary = Person("Mary")
 
-		action = input("> ")
+mary.pet = satan
 
-		if any(match in [""])
+frank = Employee("Frank", 120000) #120k
 
-###########################################
-class TheBridge(Scene):
+frank.pet = rover
 
-	def enter(self):
-		pass
+flipper = Fish()
 
-###########################################
-class EscapePod(Scene):
-	def enter(self):
-		pass
+crouse = Salmon()
 
-#######################################
-###########################################
-###########################################
-class Map(object):
-	def __init__(self, start_scene):
-		pass
-
-	def next_scene(self, scene_name):
-		pass
-
-	def opening_scene(self):
-		pass
-
-
-a_map = Map('central_corridor')
-a_game = Engine(a_map)
-a_game.play()
+harry = Halibut()
