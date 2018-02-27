@@ -21,7 +21,8 @@ def main():
 	flag = False
 	while not flag:
 		k = win.getKey()
-		if k in valid_inputs:
+		# print(k)
+		if k in 'Return':
 			flag = True
 
 	#								game play
@@ -63,12 +64,11 @@ def main():
 		#draw
 		snake.draw_next_position(win)
 			
-		#flush key pressed
-		# k = '
+		snake.remove_last_position(win)
 
 
 		#TODO change
-		refresh_rate = 1 #second
+		refresh_rate = .5 #second
 		sleep(refresh_rate) #sleep for current delay, starting at 1 sec
 		# print(f"Tick {iteration_count}.")
 
@@ -86,7 +86,7 @@ def draw_title_screen(win):
 	title.setTextColor("white")
 
 
-	subtitle = Text(Point(250,175+36), "PRESS WASD OR ARROW KEYS TO CONTINUE")
+	subtitle = Text(Point(250,175+36), "PRESS ENTER TO CONTINUE")
 	subtitle.setSize(10)
 	subtitle.setTextColor("white")
 	return title, subtitle

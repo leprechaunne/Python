@@ -7,6 +7,11 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 ## Changelog
 
+### A_1.4
+#### Changed subtitle text and the key to exit title screen to Enter (so difficulty can be added later)
+#### Tweaked tick to be a little faster
+#### Snake can be controled AND maintains the length
+
 ### A_1.3 
 #### Fixed direction confusion (got my x and y backwords) (and the y sign (+/-))
 #### Fixed tick function by swapping getKey() with checkKey()
@@ -24,10 +29,12 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 ## TODO (SOON)
 ### Disable 180 degree movement
+### Fix it skipping a gridspace
+### 'Apple' spawning
 
 ##TODO (EVENTUALLY)
 
-### 'Apple' spawning
+### Add difficulty
 ### Add Score tracking
 ### Add high scores
 ### Add visible timer
