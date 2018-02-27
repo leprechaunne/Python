@@ -34,23 +34,24 @@ class Snake:
 		#furthermore, each section of the snake is only 8 x 8 but this is achieved with outlines
 		previous_square = self.head_position
 		direction = self.direction
+		#initializing next square at base point
 		next_square = previous_square
 		#modifying position by direction
 		if "north" == direction:
-			next_square['x'] = previous_square['x'] + 1
+			next_square['y'] -=  1
 		elif "south" == direction:
-			next_square['x'] = previous_square['x'] - 1
+			next_square['y'] += 1
 		elif "east" == direction:
-			next_square['y'] = previous_square['y'] + 1
+			next_square['x'] +=1
 		elif "west" == direction:
-			next_square['y'] = previous_square['y'] - 1
+			next_square['x'] -= 1
 
 		next_rect_x_1 = next_square['x'] * 10 #find coords and shrink rect by 1
 		next_rect_x_2 = next_rect_x_1 + 9
 		next_rect_y_1 = next_square['y'] * 10# ^ ^ ^
 		next_rect_y_2 = next_rect_y_1 + 9
 
-		print(f"{next_rect_x_1}, {next_rect_y_1}")
+		print(f"{next_rect_x_1}, {next_rect_y_1}:\t{direction}")
 		corner1 = Point(next_rect_x_1, next_rect_y_1)
 		corner2 = Point(next_rect_x_2, next_rect_y_2)
 		next_rect = Rectangle(corner1, corner2)

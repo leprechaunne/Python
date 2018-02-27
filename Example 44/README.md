@@ -7,16 +7,23 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 ## Changelog
 
-### Drew a Window and a Square (impressive, I know)
+### A_1.3 
+#### Fixed direction confusion (got my x and y backwords) (and the y sign (+/-))
+#### Fixed tick function by swapping getKey() with checkKey()
 
-### Added boundary and key reading command and tick, but no action on tick yet
+### A_1.2 
+#### Made snake move on button press
 
+### A_1.1 
+#### Added boundary and key reading command and tick, but no action on tick yet
+
+### A_1.0 
+####Drew a Window and a Square (impressive, I know)
 
 
 
 ## TODO (SOON)
-### Make snake move on iteration regardless of if key pressed
-### Fix strange direction issue
+### Disable 180 degree movement
 
 ##TODO (EVENTUALLY)
 

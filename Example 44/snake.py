@@ -49,7 +49,7 @@ def main():
 		iteration_count += 1
 
 		#check for valid input
-		k = win.getKey()
+		k = win.checkKey()
 		if k in valid_inputs:
 			if k in ['w', 'Up']:
 				snake.direction = 'north'
@@ -64,12 +64,13 @@ def main():
 		snake.draw_next_position(win)
 			
 		#flush key pressed
-		k = ''
+		# k = '
 
 
 		#TODO change
 		refresh_rate = 1 #second
 		sleep(refresh_rate) #sleep for current delay, starting at 1 sec
+		# print(f"Tick {iteration_count}.")
 
 	win.close()
 
