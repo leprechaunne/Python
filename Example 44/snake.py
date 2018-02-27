@@ -1,14 +1,16 @@
 from graphics import *
+from Snake_Engine import *
+from time import sleep
 import winsound
 	#frequency
 	#duration
 	#winsound.Beep(hz, length)
+valid_inputs = ['w', 'a', 's', 'd', "Up", "Left", "Down", "Right"]
 
 def main():
 	#create game window
 	win = GraphWin("Snake", 500, 500)
 	win.setBackground("black")
-
 
 	#								title screen
 	#-----------------------------------------------------------------------
@@ -19,7 +21,7 @@ def main():
 	flag = False
 	while not flag:
 		k = win.getKey()
-		if k in ['w', 'a', 's', 'd', "Up", "Left", "Down", "Right"]:
+		if k in valid_inputs:
 			flag = True
 
 	#								game play
@@ -28,6 +30,48 @@ def main():
 	title.undraw()
 	subtitle.undraw()
 
+	#draw boundary
+	corner1 = Point(11, 11)
+	corner2 = Point(489, 489)
+	out_of_bounds = Rectangle(corner1, corner2)
+	out_of_bounds.setWidth(1)
+	out_of_bounds.setOutline("white")
+	out_of_bounds.draw(win)
+
+	#############################################
+	############	Actual Game 	#############
+	#############################################
+	snake = Snake(win)
+
+	iteration_count = 0
+	while True:
+		#track time (use of timer not implemented)
+		iteration_count += 1
+
+		#check for valid input
+		k = getKey()
+		if k in valid_inputs:
+			if k in ['w', 'Up']:
+				snake.direction = 'north'
+			elif k in ['s', 'Down']:
+				snake.direction = 'south'
+			elif k in ['a', 'Left']:
+				snake.direction = 'west'
+			elif k in ['d', 'Right']:
+				snake.direction = 'east'
+
+
+
+
+		p1 = win.getMouse()
+		print(p1)
+
+
+		#TODO change
+		refresh_rate = 1 #second
+		sleep(refresh_rate) #sleep for current delay, starting at 1 sec
+
+	win.close()
 
 
 
