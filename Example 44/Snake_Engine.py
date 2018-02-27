@@ -57,7 +57,7 @@ class Snake:
 		next_rect.setWidth(1)
 		# next_rect.setOutline("red")
 		next_rect.setFill("white")
-		next_rect.draw(win)	
+		next_rect.draw(win)	                                                    
 
 
 

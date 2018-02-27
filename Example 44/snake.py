@@ -49,7 +49,7 @@ def main():
 		iteration_count += 1
 
 		#check for valid input
-		k = getKey()
+		k = win.getKey()
 		if k in valid_inputs:
 			if k in ['w', 'Up']:
 				snake.direction = 'north'
@@ -60,11 +60,11 @@ def main():
 			elif k in ['d', 'Right']:
 				snake.direction = 'east'
 
-
-
-
-		p1 = win.getMouse()
-		print(p1)
+		#draw
+		snake.draw_next_position(win)
+			
+		#flush key pressed
+		k = ''
 
 
 		#TODO change

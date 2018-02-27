@@ -14,7 +14,11 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 
 
-## TODO
+## TODO (SOON)
+### Make snake move on iteration regardless of if key pressed
+### Fix strange direction issue
+
+##TODO (EVENTUALLY)
 
 ### 'Apple' spawning
 ### Add Score tracking
