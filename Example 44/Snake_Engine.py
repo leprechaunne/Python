@@ -43,21 +43,24 @@ class Snake:
 			next_square[0] -= 1
 			self.head_position[0] -= 1
 
-		next_rect_x_1 = next_square[0] * 10 #find coords and shrink rect by 1
+		next_rect_x_1 = next_square[0] * 5 #find coords and shrink rect by 1
 		next_rect_x_2 = next_rect_x_1 + 9
-		next_rect_y_1 = next_square[1] * 10# ^ ^ ^
+		next_rect_y_1 = next_square[1] * 5# ^ ^ ^
 		next_rect_y_2 = next_rect_y_1 + 9
 
-		print(f"{next_rect_x_1}, {next_rect_y_1}:\t{direction}")
+		# #####################print(f"{next_rect_x_1}, {next_rect_y_1}:\t{direction}")
 		corner1 = Point(next_rect_x_1, next_rect_y_1)
 		corner2 = Point(next_rect_x_2, next_rect_y_2)
 		next_rect = Rectangle(corner1, corner2)
 		next_rect.setWidth(1)
-		# next_rect.setOutline("red")
 		next_rect.setFill("white")
 		self.position_record.append(next_rect)
 		print(self.position_record)
-		next_rect.draw(win)	                                                    
+		next_rect.draw(win)	
+		# print("|")
+		# print('|', end=' ', flush=True)
+		                                                    
+		#
 
 	def remove_last_position(self, win):
 		remove_from_snake = self.position_record.pop(0)

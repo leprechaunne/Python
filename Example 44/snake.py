@@ -43,7 +43,7 @@ def main():
 	############	Actual Game 	#############
 	#############################################
 	snake = Snake(win)
-
+	
 	iteration_count = 0
 	while True:
 		#track time (use of timer not implemented)
@@ -90,5 +90,24 @@ def draw_title_screen(win):
 	subtitle.setSize(10)
 	subtitle.setTextColor("white")
 	return title, subtitle
+
+#this is to better see the grid and is for testing purposes only
+#may be used for aesthetics later
+def draw_grid(win):
+	for x in range(0, 49, 2):
+		for y in range(0, 49, 2):
+			p1 = Point(x * 10, y * 10)
+			p2 = Point(x * 10 + 9, y * 10 + 9)
+			tile = Rectangle(p1, p2)
+			tile.setWidth(0)
+			tile.setFill("cornsilk4")
+			# tile.setOutline("cornsilk4")
+			tile.draw(win)
+		#end y
+	#end x
+
+
+
+
 
 main()

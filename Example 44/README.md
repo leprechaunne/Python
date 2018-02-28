@@ -7,6 +7,9 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 ## Changelog
 
+### A_1.5
+#### Fixed the snake 'jumping'... i was skipping a full grid space instead of going to the next
+
 ### A_1.4
 #### Changed subtitle text and the key to exit title screen to Enter (so difficulty can be added later)
 #### Tweaked tick to be a little faster
