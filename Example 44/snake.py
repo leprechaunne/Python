@@ -1,6 +1,7 @@
 from graphics import *
 from Snake_Engine import *
 from time import sleep
+from random import randint
 import winsound
 	#frequency
 	#duration
@@ -42,9 +43,17 @@ def main():
 	#############################################
 	############	Actual Game 	#############
 	#############################################
+	#spawn snake
 	snake = Snake(win)
+	#spawn first apple 
+	current_apple = spawn_apple(win, snake)
+	apple_eaten = False
 
+	# initialize
 	iteration_count = 0
+	score = 0
+
+	#game loop
 	while True:
 		#track time (use of timer not implemented)
 		iteration_count += 1
@@ -54,7 +63,7 @@ def main():
 		current_direction = snake.direction
 		#apply direction change if prompted and valid
 		if k in valid_inputs:
-			if (k in ['w', 'Up']) and (currrent_direction != "south"):
+			if (k in ['w', 'Up']) and (current_direction != "south"):
 				snake.direction = 'north'
 			elif (k in ['s', 'Down']) and (current_direction != "north"):
 				snake.direction = 'south'
@@ -65,8 +74,13 @@ def main():
 
 		#draw
 		snake.draw_next_position(win)
-			
-		snake.remove_last_position(win)
+
+		#apple generation or capture
+
+		if is_rectangle_equal(current_apple, snake.position_record[0]):
+			print("he eated it")
+		else:
+			snake.remove_last_position(win)
 
 
 		#TODO change
@@ -108,6 +122,33 @@ def draw_grid(win):
 		#end y
 	#end x
 
+def spawn_apple(win, snake):
+	#must find an unoccupied space to spawn an apple
+	apple_spawned = False
+
+	while not apple_spawned:
+		#generate a random point
+		apple_guess_1 = Point(randint(0, 24)*5, randint(0, 24)*5)
+		apple_guess_2 = Point(apple_guess_1.x + 9, apple_guess_1.y + 9)
+		apple_guess = Rectangle(apple_guess_1, apple_guess_2)
+
+		#check if apple is where any segment of the snake is
+		if not (apple_guess in snake.position_record):
+			apple_spawned = True
+
+			apple_guess.setWidth(1)
+			apple_guess.setOutline("black")
+			apple_guess.setFill("red")
+
+			apple_guess.draw(win)
+			return apple_guess
+
+		#end of apple succeeded
+	#end of apple loop
+
+
+def is_rectangle_equal(rect1, rect2):
+	 return (rect1.p1 == rect2.p1) and (rect1.p2 == rect2.p2)
 
 
 

@@ -7,6 +7,9 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 ## Changelog
 
+## A_1.7
+### Apple spawns somewhere not occupied by snake
+
 ## A_1.6
 ### Disabled 180 degree movement (pretty easy, given its only one condition for 4 directions)
 
@@ -34,7 +37,10 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 
 ## TODO (SOON)
-### 'Apple' spawning
+### 'Apple' eating
+### Fix Apple spawn to in bounds 
+### Restrict movement OoB
+### size increase
 
 ##TODO (EVENTUALLY)
 

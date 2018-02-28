@@ -1,5 +1,9 @@
 from graphics import *
 from random import *
+
+
+
+
 class Snake:
 	#direction the snake is moving
 	direction = "north"
@@ -55,7 +59,7 @@ class Snake:
 		next_rect.setWidth(1)
 		next_rect.setFill("white")
 		self.position_record.append(next_rect)
-		print(self.position_record)
+		# print(self.position_record)
 		next_rect.draw(win)	
 		# print("|")
 		# print('|', end=' ', flush=True)
