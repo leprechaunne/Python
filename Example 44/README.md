@@ -7,6 +7,9 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 ## Changelog
 
+## A_1.6
+### Disabled 180 degree movement (pretty easy, given its only one condition for 4 directions)
+
 ### A_1.5
 #### Fixed the snake 'jumping'... i was skipping a full grid space instead of going to the next
 
@@ -31,8 +34,6 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 
 ## TODO (SOON)
-### Disable 180 degree movement
-### Fix it skipping a gridspace
 ### 'Apple' spawning
 
 ##TODO (EVENTUALLY)

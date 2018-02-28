@@ -43,7 +43,7 @@ def main():
 	############	Actual Game 	#############
 	#############################################
 	snake = Snake(win)
-	
+
 	iteration_count = 0
 	while True:
 		#track time (use of timer not implemented)
@@ -51,14 +51,16 @@ def main():
 
 		#check for valid input
 		k = win.checkKey()
+		current_direction = snake.direction
+		#apply direction change if prompted and valid
 		if k in valid_inputs:
-			if k in ['w', 'Up']:
+			if (k in ['w', 'Up']) and (currrent_direction != "south"):
 				snake.direction = 'north'
-			elif k in ['s', 'Down']:
+			elif (k in ['s', 'Down']) and (current_direction != "north"):
 				snake.direction = 'south'
-			elif k in ['a', 'Left']:
+			elif (k in ['a', 'Left']) and (current_direction != "east"):
 				snake.direction = 'west'
-			elif k in ['d', 'Right']:
+			elif (k in ['d', 'Right']) and (current_direction != "west"):
 				snake.direction = 'east'
 
 		#draw
