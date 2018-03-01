@@ -79,6 +79,7 @@ def main():
 
 		if is_rectangle_equal(current_apple, snake.position_record[0]):
 			print("he eated it")
+			# snake.add_square(win)
 		else:
 			snake.remove_last_position(win)
 
@@ -107,20 +108,20 @@ def draw_title_screen(win):
 	subtitle.setTextColor("white")
 	return title, subtitle
 
-#this is to better see the grid and is for testing purposes only
-#may be used for aesthetics later
-def draw_grid(win):
-	for x in range(0, 49, 2):
-		for y in range(0, 49, 2):
-			p1 = Point(x * 10, y * 10)
-			p2 = Point(x * 10 + 9, y * 10 + 9)
-			tile = Rectangle(p1, p2)
-			tile.setWidth(0)
-			tile.setFill("cornsilk4")
-			# tile.setOutline("cornsilk4")
-			tile.draw(win)
-		#end y
-	#end x
+# #this is to better see the grid and is for testing purposes only
+# #may be used for aesthetics later
+# def draw_grid(win):
+# 	for x in range(0, 49, 2):
+# 		for y in range(0, 49, 2):
+# 			p1 = Point(x * 5, y * 5)
+# 			p2 = Point(x * 5 + 9, y * 5 + 9)
+# 			tile = Rectangle(p1, p2)
+# 			tile.setWidth(0)
+# 			tile.setFill("cornsilk4")
+# 			# tile.setOutline("cornsilk4")
+# 			tile.draw(win)
+# 		#end y
+# 	#end x
 
 def spawn_apple(win, snake):
 	#must find an unoccupied space to spawn an apple
@@ -128,7 +129,7 @@ def spawn_apple(win, snake):
 
 	while not apple_spawned:
 		#generate a random point
-		apple_guess_1 = Point(randint(0, 24)*5, randint(0, 24)*5)
+		apple_guess_1 = Point(randint(1, 49)*10, randint(1, 49)*10)
 		apple_guess_2 = Point(apple_guess_1.x + 9, apple_guess_1.y + 9)
 		apple_guess = Rectangle(apple_guess_1, apple_guess_2)
 

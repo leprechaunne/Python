@@ -47,9 +47,9 @@ class Snake:
 			next_square[0] -= 1
 			self.head_position[0] -= 1
 
-		next_rect_x_1 = next_square[0] * 5 #find coords and shrink rect by 1
+		next_rect_x_1 = next_square[0] * 10 #find coords and shrink rect by 1
 		next_rect_x_2 = next_rect_x_1 + 9
-		next_rect_y_1 = next_square[1] * 5# ^ ^ ^
+		next_rect_y_1 = next_square[1] * 10# ^ ^ ^
 		next_rect_y_2 = next_rect_y_1 + 9
 
 		# #####################print(f"{next_rect_x_1}, {next_rect_y_1}:\t{direction}")
@@ -71,4 +71,6 @@ class Snake:
 		remove_from_snake.undraw()
 
 
-
+	def add_square(win):
+		self.snake_length += 1
+		self.position_record.append()

@@ -7,6 +7,10 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 ## Changelog
 
+## A_1.8
+### Doesn't crash anymore
+### Apple spawns inside borders only (snake still not bound)
+
 ## A_1.7
 ### Apple spawns somewhere not occupied by snake
 
@@ -38,9 +42,8 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 
 ## TODO (SOON)
 ### 'Apple' eating
-### Fix Apple spawn to in bounds 
 ### Restrict movement OoB
-### size increase
+### EDIT: snake& size increase
 
 ##TODO (EVENTUALLY)
 
