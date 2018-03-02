@@ -73,7 +73,7 @@ def main():
 				snake.direction = 'east'
 
 		#draw
-		snake.draw_next_position(win)
+		# snake.draw_next_position(win)
 		
 		print(snake.position_record, end='\n\n')
 		snake.draw_next_position(win)
