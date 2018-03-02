@@ -74,7 +74,10 @@ def main():
 
 		#draw
 		snake.draw_next_position(win)
-
+		
+		print(snake.position_record, end='\n\n')
+		snake.draw_next_position(win)
+		
 		#apple generation or capture
 
 		if is_rectangle_equal(current_apple, snake.position_record[0]):
@@ -82,6 +85,9 @@ def main():
 			# snake.add_square(win)
 		else:
 			snake.remove_last_position(win)
+		#maybe it needs two flushes
+		# if iteration_count == 1:
+			# snake.remove_last_position(win)
 
 
 		#TODO change
@@ -129,7 +135,7 @@ def spawn_apple(win, snake):
 
 	while not apple_spawned:
 		#generate a random point
-		apple_guess_1 = Point(randint(1, 49)*10, randint(1, 49)*10)
+		apple_guess_1 = Point(randint(2, 48)*10, randint(2, 48)*10)
 		apple_guess_2 = Point(apple_guess_1.x + 9, apple_guess_1.y + 9)
 		apple_guess = Rectangle(apple_guess_1, apple_guess_2)
 

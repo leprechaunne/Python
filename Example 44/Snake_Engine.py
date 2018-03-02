@@ -58,7 +58,7 @@ class Snake:
 		next_rect = Rectangle(corner1, corner2)
 		next_rect.setWidth(1)
 		next_rect.setFill("white")
-		self.position_record.append(next_rect)
+		self.position_record.extend(next_rect)
 		# print(self.position_record)
 		next_rect.draw(win)	
 		# print("|")
