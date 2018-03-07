@@ -2,6 +2,12 @@
 ## Synopsis
 
 These exercises are from "Learning Python the Hard Way" to demonstrate and perfect Python code.
+###1-43 are in a folder and are mostly small (usually 1 file) examples
+###44 does not have an example
+###45 is a demo of snake
+46 and on are stored in projects
+### 46 is projects/skeleton (to be used for further uploads)
+
 
 ## Motivation
 
