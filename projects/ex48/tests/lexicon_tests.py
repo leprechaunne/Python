@@ -4,9 +4,7 @@ import lexicon
 def test_directions():
 	assert_equal(lexicon.scan("north"), [('direction', 'north')])
 	result = lexicon.scan("north south east")
-	assert_equal(result, [('direction', 'north'),
-					('direction', 'south'),
-					('direction', 'east')])
+	assert_equal(result, [('direction', 'north'),('direction', 'south'),('direction', 'east')])
 
 def test_verbs():
 	assert_equal(lexicon.scan("go"), [('verb', 'go')])
@@ -31,6 +29,6 @@ def test_numbers():
 	assert_equal(result, [('number', 3),('number', 91234)])
 
 def test_errors():
-	assert_equal(lexicon.scan("ASFADFASDF"), [('error', 'ASDFADFASDF')])
+	assert_equal(lexicon.scan("ASDFADFASDF"), [('error', 'ASDFADFASDF')])
 	result = lexicon.scan("bear IAS princess")
 	assert_equal(result, [('noun', 'bear'),('error', 'IAS'),('noun', 'princess')])

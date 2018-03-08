@@ -15,7 +15,9 @@ def scan(raw_input):
 		return ""
 
 	#convert to lsit
-	cooked_input = raw_input.lower().split()
+	##cooked_input = raw_input.lower().split()
+	#assert_equal is case sensitive
+	cooked_input = raw_input.split()
 
 	#formatting each entry to have class types and adding them to the final return
 	return_value = []
@@ -25,16 +27,16 @@ def scan(raw_input):
 			return_value.append(('direction', word))
 		elif word in verbs:
 			return_value.append(('verb', word))
-		elif word in verbs:
+		elif word in stops:
 			return_value.append(('stop', word))
-		elif word in verbs:
+		elif word in nouns:
 			return_value.append(('noun', word))
 		elif isa_number(word):
 			return_value.append(('number', isa_number(word)))
 		else:
 			return_value.append(('error', word))
 
-		return return_value
+	return return_value
 
 
 	
