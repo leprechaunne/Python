@@ -82,6 +82,7 @@ def main():
 
 		if is_rectangle_equal(current_apple, snake.position_record[0]):
 			print("he eated it")
+			current_apple(undraw)
 			# snake.add_square(win)
 		else:
 			snake.remove_last_position(win)
