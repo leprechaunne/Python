@@ -16,5 +16,4 @@ config = {
 	'name': 'PROJECT_NAME'
 }
 
-
 setup(**config)
