@@ -1,0 +1,10 @@
+C:\Users\Noah\lpthw\Python\projects\skeleton\.txt
+C:\Users\Noah\lpthw\Python\projects\skeleton\bin
+C:\Users\Noah\lpthw\Python\projects\skeleton\docs
+C:\Users\Noah\lpthw\Python\projects\skeleton\f.txt
+C:\Users\Noah\lpthw\Python\projects\skeleton\NAME
+C:\Users\Noah\lpthw\Python\projects\skeleton\setup.py
+C:\Users\Noah\lpthw\Python\projects\skeleton\tests
+C:\Users\Noah\lpthw\Python\projects\skeleton\NAME\__init__.py
+C:\Users\Noah\lpthw\Python\projects\skeleton\tests\__init__.py
+C:\Users\Noah\lpthw\Python\projects\skeleton\tests\NAME_tests.py

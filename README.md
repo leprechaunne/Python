@@ -7,7 +7,9 @@ These exercises are from "Learning Python the Hard Way" to demonstrate and perfe
 ###45 is a demo of snake
 46 and on are stored in projects
 ### 46 is projects/skeleton (to be used for further uploads)
-
+### 47 is the first use of the skeleton, for a basic game
+### 48 is advanced input
+###
 
 ## Motivation
 
