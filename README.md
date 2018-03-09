@@ -11,6 +11,7 @@ These exercises are from "Learning Python the Hard Way" to demonstrate and perfe
 ### 48 is advanced input
 ### 49 is a fork of 48, adding sentence parsing to make the lexicon's returns useful
 ### 50 uses Flask (from pip) to create a webapp from ex43.py (a TBA)
+### 51 is a branch of 50 that uses more html pages, nosetests, and GET and POST data with Flask
 
 ## Motivation
 
