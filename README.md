@@ -1,18 +1,17 @@
 # Python
 ## Synopsis
+Learning Python as a scripting language for the first of the 'Four Corners of Coding'
 
-These exercises are from "Learning Python the Hard Way" to demonstrate and perfect Python code.
-###1-43 are in a folder and are mostly small (usually 1 file) examples
-###44 does not have an example
-###45 is a demo of snake
-46 and on are stored in projects
-### 46 is projects/skeleton (to be used for further uploads)
-### 47 is the first use of the skeleton, for a basic game
-### 48 is advanced input
-### 49 is a fork of 48, adding sentence parsing to make the lexicon's returns useful
-### 50 uses Flask (from pip) to create a webapp from ex43.py (a TBA)
-### 51 is a branch of 50 that uses more html pages, nosetests, and GET and POST data with Flask
-### 52 is a branch of 50>51 that uses data from 39 to get content for the TBA. This is the finished product.
+## Descriptions
+### Learning Python The Hard Way
+A textbook gifted to me to learn basic commands and guidance on installing and using the command prompt more (said friend made me delete Git Desktop :( )
+
+I wouldn't recommend this book to anyone that's coded before, but if you can stomach the monotonous work, it teachs you enough useful information and some Pythonic syntax (less is more)
+
+### Python Arcade Game
+Okay so I made a snake, and then my twin asked why I didn't name it python instead... I couldn't think of a reason so I changed it.
+
+The only non-standard packages I use is graphics.py, because I'll be doing plenty of GUI and containers during the Full Stack Developer corner.
 
 ## Motivation
 
@@ -21,10 +20,11 @@ I wanted to learn new languages, and was recommended Python by a friend. It's a 
 ## Installation
 
 Basic Python IDE setup. Download Python from their website and navigate to this directory. Use the "python [filename.py]" command to run these files.
+Conda for virtual environments, packages imported with pip
 
 ## API Reference
 
-Default packages only, so far.
+No programs have created an API, and the only non-pip library I've used is "Graphics.py"
 
 ## Code Examples and Tests
 
