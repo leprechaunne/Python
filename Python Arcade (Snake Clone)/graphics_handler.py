@@ -13,7 +13,8 @@ grid_size		= 10  	#Px. Defines the length of the sides of the square created in 
 grid_x_max		= floor(window_width / grid_size) 
 grid_y_max 		= floor(window_height / grid_size)
 play_area_grid	= [[1, 1], [grid_x_max - 1, grid_y_max - 1]] #play area excludes the outermost tiles
-
+#TK isn't nice about it's error handling. Try:Except: doesn't stop it, so I have to manually catch
+tk_colors = ['white', 'black', 'red', 'green', 'blue', 'cyan', 'yellow', 'magenta']
 
 def create_window():
 	"""create game window"""
@@ -61,8 +62,8 @@ def generate_game_board(win):
 
 	#draw boundary
 	##get coordinates of LAST ACCEPTABLE points
-	p1 = grid_to_coords(play_area_grid[0][0], play_area_grid[0][1])
-	p2 = grid_to_coords(play_area_grid[1][0], play_area_grid[1][1])
+	p1 = grid_to_coords(play_area_grid[0][0], play_area_grid[1][0])
+	p2 = grid_to_coords(play_area_grid[0][1], play_area_grid[1][1])
 	##modify these points to be the OoB border
 	p1 = [p1[0] - 1, p1[1] - 1]
 	p2 = [p2[0] + 1, p2[1] + 1]
@@ -85,8 +86,11 @@ def grid_to_coords(x, y):
 	#check for out_of_grid exception
 	p1 = play_area_grid[0]
 	p2 = play_area_grid[1]
+
 	#check for failure first
-	if not ( (x in [p1[0], p2[0]]) or (y in [p1[1], p2[1]]) ):
+	if not ( (x in range(p1[0], p2[0])) 
+			or (y in range(p1[1], p2[1])) ):
+
 		return False
 	else:
 		#now convert
@@ -95,11 +99,29 @@ def grid_to_coords(x, y):
 		return [x_coord, y_coord]
 
 
-def get_center_grid(win):
+def get_center_grid(win, color="white"):
 	"""give the grid square (not px) of the middle of the board"""
 	x = floor(grid_x_max / 2)
 	y = floor(grid_y_max / 2)
 	return [x, y]
 
-def draw_square_from_grid(win, grid_space):
-	pass
+def draw_square_from_grid(win, grid_space, color="white"):
+	"""convert a simplified grid coord ie (1,1) and getting pixel location"""
+	#Get coordinates in pixels
+	x, y = grid_to_coords(grid_space[0], grid_space[1])
+	x2 = x + grid_size - 1 #find opposite corner
+	y2 = x + grid_size - 1 #find opposite corner
+
+	#create rectangle object and customize
+	p1 = Point(x, y)
+	p2 = Point(x2, y2)
+	square = Rectangle(p1, p2)
+
+	square.setOutline("black")
+	square.setWidth(1)
+	if color in tk_colors:
+		square.setFill(color)
+	else:
+		square.setFill("white")
+
+	square.draw(win)

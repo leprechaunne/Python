@@ -20,8 +20,8 @@ class Snake(object):
 		# This is intentionally a nested array.
 		self.position_record = [start_point]
 		# Draw said position
-		graphics_handler.draw_square_from_grid(win, start_point)
-
+		graphics_handler.draw_square_from_grid(win, start_point) #CAUTION: with >1 snakes, this has to change
+		#
 
 
 

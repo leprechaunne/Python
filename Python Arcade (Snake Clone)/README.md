@@ -12,6 +12,10 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 -- 4# for @--#.X change (aka A--1.1 to A--1.2)
 -- 5# for @--#.#.X (minor changes like A--5.3.1 usually for hotfixes)
 
+#### A--2.1
+Added snake spawning with option color
+KNOWN ISSUES: endless loop, doesn't fully clear screen, one weird pixel persists, border not drawn
+
 ### A--2.0
 Complete structure overhaul! Now that it has its own branch in the main repository, I took
 to cleaning up the code and organizing the functions and classes so it's easier to edit.
@@ -51,7 +55,6 @@ Added boundary and key reading command and tick, but no action on tick yet
 Drew a Window and a Square (impressive, I know)
 
 ## TOREDO
-### Snake Spawning
 ### Snake moving
 ### Apple Spawning
 ### Snake growing (although this one was never fully implemented yet)

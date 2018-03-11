@@ -28,6 +28,10 @@ def main():
 	#build snake(s)
 	player1 = entities.Snake(win, color="white")
 
+
+	while True:
+		pass
+
 	#Teardown 
 	graphics_handler.teardown_all(win)
 	
