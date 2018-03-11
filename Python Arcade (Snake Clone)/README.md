@@ -12,6 +12,12 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 -- 4# for @--#.X change (aka A--1.1 to A--1.2)
 -- 5# for @--#.#.X (minor changes like A--5.3.1 usually for hotfixes)
 
+### A--2.0
+Complete structure overhaul! Now that it has its own branch in the main repository, I took
+to cleaning up the code and organizing the functions and classes so it's easier to edit.
+
+As such, some previously functioning features are not yet implemented, so the todo will change with
+this upload.
 
 #### A--1.8
 Doesn't crash anymore
@@ -44,11 +50,15 @@ Added boundary and key reading command and tick, but no action on tick yet
 ##### A--1.0 
 Drew a Window and a Square (impressive, I know)
 
-
+## TOREDO
+### Snake Spawning
+### Snake moving
+### Apple Spawning
+### Snake growing (although this one was never fully implemented yet)
 
 ## TODO (SOON)
 ### 'Apple' eating
-### Restrict movement OoB
+### Restrict movement OoB -- This one I've sort of done... I structured the new grid->coords method to handle it
 ### EDIT: snake& size increase
 
 ##TODO (EVENTUALLY)
@@ -57,5 +67,5 @@ Drew a Window and a Square (impressive, I know)
 ### Add Score tracking
 ### Add high scores
 ### Add visible timer
-### Dynamic timer to speed up
+### Dynamic timer to speed up TICKS ONLY, the visible timer is for player reference
 
