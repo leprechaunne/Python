@@ -25,7 +25,7 @@ def create_window():
 #################   Clearing Win  	###############################
 def teardown_all(win):
 	"""undraws all objects in the window"""
-	for obj in win.items:
+	for obj in win.items[:]:
 		obj.undraw()
 
 
@@ -62,15 +62,17 @@ def generate_game_board(win):
 
 	#draw boundary
 	##get coordinates of LAST ACCEPTABLE points
-	p1 = grid_to_coords(play_area_grid[0][0], play_area_grid[1][0])
-	p2 = grid_to_coords(play_area_grid[0][1], play_area_grid[1][1])
+	g1 = grid_to_coords(play_area_grid[0][0], play_area_grid[0][1], override=True)
+	g2 = grid_to_coords(play_area_grid[1][0], play_area_grid[1][1], override=True)
+
 	##modify these points to be the OoB border
-	p1 = [p1[0] - 1, p1[1] - 1]
-	p2 = [p2[0] + 1, p2[1] + 1]
+	p1 = [g1[0] - 1, g1[1] - 1]
+	p2 = [g2[0] + 1, g2[1] + 1]
 	##convert to type Point
 	corner1 = Point(p1[0], p1[1])
 	corner2 = Point(p2[0], p2[1])
 	##use graphics' API to draw boundary
+	print(corner1, corner2)
 	out_of_bounds = Rectangle(corner1, corner2)
 	out_of_bounds.setWidth(1)
 	out_of_bounds.setOutline("white")
@@ -82,13 +84,13 @@ def generate_game_board(win):
 
 ##############	Secondary Definitions #########################
 
-def grid_to_coords(x, y):
+def grid_to_coords(x, y, override=False):
 	#check for out_of_grid exception
 	p1 = play_area_grid[0]
 	p2 = play_area_grid[1]
 
 	#check for failure first
-	if not ( (x in range(p1[0], p2[0])) 
+	if not override and not ( (x in range(p1[0], p2[0])) 
 			or (y in range(p1[1], p2[1])) ):
 
 		return False

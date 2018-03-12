@@ -12,6 +12,10 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 -- 4# for @--#.X change (aka A--1.1 to A--1.2)
 -- 5# for @--#.#.X (minor changes like A--5.3.1 usually for hotfixes)
 
+##### A--2.1.1
+Fixed clear screen, weird pixel, and border. For now the endless loop is considered not a
+bug due to the lack of movement.
+
 #### A--2.1
 Added snake spawning with option color
 KNOWN ISSUES: endless loop, doesn't fully clear screen, one weird pixel persists, border not drawn
