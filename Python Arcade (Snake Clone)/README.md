@@ -12,6 +12,16 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 -- 4# for @--#.X change (aka A--1.1 to A--1.2)
 -- 5# for @--#.#.X (minor changes like A--5.3.1 usually for hotfixes)
 
+##### A--2.2.1
+This is a minor update because it has huge flaws, but I'm closing my code for now
+so I want to update the main repository. Apples currently spawn very tall?
+Oh and entities.py has an algorithm to aid in multiplayer spawning, though
+it's not implemented yet
+
+#### A--2.2
+Default snake color changed to green. 
+
+
 ##### A--2.1.1
 Fixed clear screen, weird pixel, and border. For now the endless loop is considered not a
 bug due to the lack of movement.
@@ -71,6 +81,7 @@ Drew a Window and a Square (impressive, I know)
 ##TODO (EVENTUALLY)
 
 ### Add difficulty
+### Apple decay
 ### Add Score tracking
 ### Add high scores
 ### Add visible timer

@@ -26,7 +26,8 @@ def main():
 
 	#CODE TO READ INPUT AND ALTER SNAKE AND BOARD
 	#build snake(s)
-	player1 = entities.Snake(win, color="white")
+	player1 = entities.Snake(win)
+	first_apple = entities.Apple(win, player1.position_record)
 
 
 	while True:

@@ -1,6 +1,7 @@
 """Used for drawing and handling UI independtly so the graphics may be quickly changed."""
 from graphics import *
 from math import floor
+from random import randint
 
 #these variables are static, and should be changed to customize the window and grid
 window_width 	= 500 	#Px. Obviously must be greater than zero.
@@ -37,7 +38,7 @@ def generate_title_screen(win):
 	title.setSize(36)
 	title.setTextColor("white")
 
-	subtitle = Text(Point(250,175+36), "PRESS ENTER TO CONTINUE")
+	subtitle = Text(Point(250,175+36), "PRESS\t\tENTER\t\tTO\t\tCONTINUE")
 	subtitle.setSize(10)
 	subtitle.setTextColor("white")
 
@@ -101,11 +102,17 @@ def grid_to_coords(x, y, override=False):
 		return [x_coord, y_coord]
 
 
-def get_center_grid(win, color="white"):
+def get_center_grid(win):
 	"""give the grid square (not px) of the middle of the board"""
 	x = floor(grid_x_max / 2)
 	y = floor(grid_y_max / 2)
 	return [x, y]
+
+def get_random_grid(win):
+	x = randint(0, grid_x_max)
+	y = randint(0, grid_y_max)
+	return [x, y]
+
 
 def draw_square_from_grid(win, grid_space, color="white"):
 	"""convert a simplified grid coord ie (1,1) and getting pixel location"""
@@ -121,9 +128,11 @@ def draw_square_from_grid(win, grid_space, color="white"):
 
 	square.setOutline("black")
 	square.setWidth(1)
+	# print(color)
 	if color in tk_colors:
 		square.setFill(color)
 	else:
-		square.setFill("white")
+		square.setFill("green")
 
 	square.draw(win)
+	return square
