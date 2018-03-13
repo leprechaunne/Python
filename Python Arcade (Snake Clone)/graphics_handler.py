@@ -11,6 +11,9 @@ grid_size		= 10  	#Px. Defines the length of the sides of the square created in 
 #To understand this grid, the origin is the upper left pixel. 
 #The left column is 0 and the right column is max_width
 #Same logic for y, though it is counter intuitive for an increasing y to be lower on the board
+
+occupied_grids = [] #used for collision detections
+
 grid_x_max		= floor(window_width / grid_size) 
 grid_y_max 		= floor(window_height / grid_size)
 play_area_grid	= [[1, 1], [grid_x_max - 1, grid_y_max - 1]] #play area excludes the outermost tiles
@@ -38,7 +41,7 @@ def generate_title_screen(win):
 	title.setSize(36)
 	title.setTextColor("white")
 
-	subtitle = Text(Point(250,175+36), "PRESS\t\tENTER\t\tTO\t\tCONTINUE")
+	subtitle = Text(Point(250,175+36), "PRESS    ENTER    TO    CONTINUE")
 	subtitle.setSize(10)
 	subtitle.setTextColor("white")
 
@@ -73,7 +76,6 @@ def generate_game_board(win):
 	corner1 = Point(p1[0], p1[1])
 	corner2 = Point(p2[0], p2[1])
 	##use graphics' API to draw boundary
-	print(corner1, corner2)
 	out_of_bounds = Rectangle(corner1, corner2)
 	out_of_bounds.setWidth(1)
 	out_of_bounds.setOutline("white")
@@ -109,8 +111,13 @@ def get_center_grid(win):
 	return [x, y]
 
 def get_random_grid(win):
-	x = randint(0, grid_x_max)
-	y = randint(0, grid_y_max)
+	p1 = play_area_grid[0]
+	p2 = play_area_grid[1]
+
+
+	x = randint(p1[0], p2[0])
+	y = randint(p1[1], p2[1])
+	# print(x,y)
 	return [x, y]
 
 
@@ -119,11 +126,12 @@ def draw_square_from_grid(win, grid_space, color="white"):
 	#Get coordinates in pixels
 	x, y = grid_to_coords(grid_space[0], grid_space[1])
 	x2 = x + grid_size - 1 #find opposite corner
-	y2 = x + grid_size - 1 #find opposite corner
+	y2 = y + grid_size - 1 #find opposite corner
 
 	#create rectangle object and customize
 	p1 = Point(x, y)
 	p2 = Point(x2, y2)
+	# print(f"[{x},{y}] : [{x2},{y2}]")
 	square = Rectangle(p1, p2)
 
 	square.setOutline("black")

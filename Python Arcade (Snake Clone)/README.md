@@ -12,6 +12,9 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 -- 4# for @--#.X change (aka A--1.1 to A--1.2)
 -- 5# for @--#.#.X (minor changes like A--5.3.1 usually for hotfixes)
 
+### A--2.2.2
+Apple isn't stretching anymore!
+
 ##### A--2.2.1
 This is a minor update because it has huge flaws, but I'm closing my code for now
 so I want to update the main repository. Apples currently spawn very tall?
