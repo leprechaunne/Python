@@ -54,6 +54,7 @@ def generate_title_screen(win):
 		# print(k)
 		if k in 'Return':
 			flag = True
+		subtitle.move(-10, 0)
 
 	#Next scene
 	teardown_all(win)
@@ -103,6 +104,15 @@ def grid_to_coords(x, y, override=False):
 		y_coord = y * grid_size		#this line of reasoning works because the first pixel is 0,0
 		return [x_coord, y_coord]
 
+def coords_to_grid(x, y, override=False):
+	#this function can have less error checking, as
+	#coordinates are only received by graphics.py functions, which 
+	#would have already raised the error if there were one
+	x_grid_coord = floor(x / grid_size)
+	y_grid_coord = floor(y / grid_size)
+
+	return [x_grid_coord, y_grid_coord]
+
 
 def get_center_grid(win):
 	"""give the grid square (not px) of the middle of the board"""
@@ -113,7 +123,9 @@ def get_center_grid(win):
 def get_random_grid(win):
 	p1 = play_area_grid[0]
 	p2 = play_area_grid[1]
-
+	#exclude grid
+	p1 = [p1[0] + 1, p1[1] + 1]
+	p2 = [p2[0] - 1, p2[1] - 1]
 
 	x = randint(p1[0], p2[0])
 	y = randint(p1[1], p2[1])
@@ -124,7 +136,7 @@ def get_random_grid(win):
 def draw_square_from_grid(win, grid_space, color="white"):
 	"""convert a simplified grid coord ie (1,1) and getting pixel location"""
 	#Get coordinates in pixels
-	x, y = grid_to_coords(grid_space[0], grid_space[1])
+	[x, y] = grid_to_coords(grid_space[0], grid_space[1])
 	x2 = x + grid_size - 1 #find opposite corner
 	y2 = y + grid_size - 1 #find opposite corner
 
@@ -144,3 +156,26 @@ def draw_square_from_grid(win, grid_space, color="white"):
 
 	square.draw(win)
 	return square
+
+def create_entity_list(win):
+	#all empty grids should be false
+	ent_list = []
+	# to_string = ""
+	for y in range(0, grid_y_max):
+		#make a row
+		row = [False]
+		for x in range(1, grid_x_max):
+			row.append(False)
+
+		if y == 0:
+			ent_list = [row]
+		else:
+			ent_list.append(row)
+		# to_string += f"\n{row}"
+	#append row
+	if not ent_list:
+		ent_list = [row]
+	else:
+		ent_list.append(row)
+
+	return ent_list

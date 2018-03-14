@@ -12,7 +12,16 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 -- 4# for @--#.X change (aka A--1.1 to A--1.2)
 -- 5# for @--#.#.X (minor changes like A--5.3.1 usually for hotfixes)
 
-### A--2.2.2
+### A--2.4
+Assorted progress (enough to warrant a push while its still unstable), working on
+fusing movement and collisions by "looking ahead" and taking advantage of the 
+simplicity of Snake's controls
+
+### A--2.3
+Apple can no longer spawn outside of border
+Entities and the spaces they occupy are now tracks in a list (entities.entity_list[][])
+
+#### A--2.2.2
 Apple isn't stretching anymore!
 
 ##### A--2.2.1
