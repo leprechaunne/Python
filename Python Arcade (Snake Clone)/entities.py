@@ -89,8 +89,8 @@ class Snake(object):
 				#the next snake square will be update after the if block
 				#the entity list will also be updated
 				#update length variable and score
-
-				pass
+				self.length += 1
+				self.score += 50
 		else:
 			#no collision, will move, delete last square to maintain length
 			rectangle_to_teardown = self.rectangle_record.pop()
@@ -112,7 +112,7 @@ class Snake(object):
 		new_head = graphics_handler.draw_square_from_grid(win, new_grid_coords, self.color)
 		self.rectangle_record.append(new_head)
 		#update ent list 
-		ent_list[new_grid_coords[1]][new_grid_coords[0]] = "Snake"
+		ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
 		return ent_list
 
 		
@@ -141,5 +141,6 @@ class Apple(object):
 
 
 def add_to_entity_list(obj, ent_list, x, y, tag):
-	ent_list[y][x] = tag
+	""""A list of every gridspace, with the information of a string tag and the object"""
+	ent_list[y][x] = [tag, obj]
 	return ent_list

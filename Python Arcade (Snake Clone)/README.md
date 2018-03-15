@@ -12,6 +12,10 @@ It's primary purpose is to demonstrate creating a program from scratch with prop
 -- 4# for @--#.X change (aka A--1.1 to A--1.2)
 -- 5# for @--#.#.X (minor changes like A--5.3.1 usually for hotfixes)
 
+#### A--2.5.1
+It doesn't crash anymore, but it stops moving when it eats an apple. This update is mostly to
+post the known bug and the fix for the last one
+
 ### A--2.5
 The snake moves!!! It crashes when it eats an apple, but one step at a time.
 
