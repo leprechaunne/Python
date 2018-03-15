@@ -136,6 +136,7 @@ def get_random_grid(win):
 def draw_square_from_grid(win, grid_space, color="white"):
 	"""convert a simplified grid coord ie (1,1) and getting pixel location"""
 	#Get coordinates in pixels
+	# print(grid_to_coords(grid_space[0], grid_space[1]))
 	[x, y] = grid_to_coords(grid_space[0], grid_space[1])
 	x2 = x + grid_size - 1 #find opposite corner
 	y2 = y + grid_size - 1 #find opposite corner

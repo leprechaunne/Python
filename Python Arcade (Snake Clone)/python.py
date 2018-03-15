@@ -14,7 +14,7 @@ acceptable_input = {
 					'move_right': ['Right', 'd']
 					}
 
-tick_speed = 1 #This should be modified by difficulty, and increment
+tick_speed = .5 #seconds. This should be modified by difficulty, and increment
 
 ###############		Main method
 def main():
@@ -32,7 +32,7 @@ def main():
 	#build snake(s)
 	player1 = entities.Snake(win)
 	apple = entities.Apple(win, player1.grid_position_record)
-	entities.add_to_entity_list(apple, entity_list, apple.grid_position[0], apple.grid_position[1])
+	entities.add_to_entity_list(apple, entity_list, apple.grid_position[0], apple.grid_position[1], "Apple")
 
 	game_over = False
 	ticks_passed = 0
@@ -58,8 +58,14 @@ def main():
 		###############################################################################
 		##############################################################################
 		#					DO NOT FORGET TO RETURN MODIFIED ENTITY LIST
+		
+		# give a score point for not dying
+		player1.score += 1
 
 		sleep(tick_speed)
+
+		#update tick number
+		ticks_passed += 1
 
 	#Teardown 
 	graphics_handler.teardown_all(win)

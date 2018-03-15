@@ -32,6 +32,7 @@ class Snake(object):
 		self.grid_position_record = [start_point]
 		# Draw said position
 		self.rectangle_record = [graphics_handler.draw_square_from_grid(win, start_point, self.color)]
+		self.score = 0
 		#CAUTION: with >1 snakes, this has to change
 			#Probably use center grid, then center grid with the smaller section
 			#For four players, repeat twice (which is 2^2)
@@ -81,12 +82,14 @@ class Snake(object):
 
 		if next_ent:
 			#code for collision
-			if next_ent.type == "Apple":
-				print("I hit an apple")
-				#destroy apple
+			if next_ent == "Apple":
+				#destroy apple 
+				next_ent.undraw()
 				#do not remove previous snake square
-				#update entity list
+				#the next snake square will be update after the if block
+				#the entity list will also be updated
 				#update length variable and score
+
 				pass
 		else:
 			#no collision, will move, delete last square to maintain length
@@ -96,11 +99,21 @@ class Snake(object):
 			[g1x, g1y] = graphics_handler.coords_to_grid(p1x, p1y)
 			#remove from entlist
 			ent_list[g1y][g1x] = False
+			#remove from grids coords list
+			self.grid_position_record.pop()
 			#undraw
 			rectangle_to_teardown.undraw()
 
 		#move
-		new_head = graphics_handler.draw_square_from_grid(next_grid_position[0], next_grid_position[1])
+		#grid coords
+		new_grid_coords = [next_grid_position[0], next_grid_position[1]]
+		self.grid_position_record.append(new_grid_coords)
+		#rectangle save
+		new_head = graphics_handler.draw_square_from_grid(win, new_grid_coords, self.color)
+		self.rectangle_record.append(new_head)
+		#update ent list 
+		ent_list[new_grid_coords[1]][new_grid_coords[0]] = "Snake"
+		return ent_list
 
 		
 
@@ -127,6 +140,6 @@ class Apple(object):
 		# print(type(apple))
 
 
-def add_to_entity_list(obj, ent_list, x, y):
-	ent_list[y][x] = obj
+def add_to_entity_list(obj, ent_list, x, y, tag):
+	ent_list[y][x] = tag
 	return ent_list
