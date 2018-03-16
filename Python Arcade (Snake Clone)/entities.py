@@ -107,10 +107,12 @@ class Snake(object):
 		#move
 		#grid coords
 		new_grid_coords = [next_grid_position[0], next_grid_position[1]]
-		self.grid_position_record.append(new_grid_coords)
+		#concatenate lists
+		self.grid_position_record = add_nested_list_to_front(new_grid_coords, self.grid_position_record)
+		# print(self.grid_position_record)
 		#rectangle save
 		new_head = graphics_handler.draw_square_from_grid(win, new_grid_coords, self.color)
-		self.rectangle_record.append(new_head)
+		self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
 		#update ent list 
 		ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
 		return ent_list
@@ -144,3 +146,10 @@ def add_to_entity_list(obj, ent_list, x, y, tag):
 	""""A list of every gridspace, with the information of a string tag and the object"""
 	ent_list[y][x] = [tag, obj]
 	return ent_list
+
+def add_nested_list_to_front(new_top_list, list_of_lists):
+	new_list_of_lists = [new_top_list]
+	for index in range(1, len(list_of_lists)):
+		new_list_of_lists[index] = list_of_lists[index-1]
+
+	return new_list_of_lists
