@@ -66,7 +66,7 @@ def main():
 
 		#update tick number
 		ticks_passed += 1
-		print(ticks_passed)
+		# print(ticks_passed)
 
 	#Teardown 
 	graphics_handler.teardown_all(win)

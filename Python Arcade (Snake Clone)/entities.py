@@ -82,9 +82,10 @@ class Snake(object):
 
 		if next_ent:
 			#code for collision
-			if next_ent == "Apple":
+			if next_ent[0] == "Apple":
 				#destroy apple 
-				next_ent.undraw()
+				apple = next_ent[1]
+				apple.rectangle.undraw()
 				#do not remove previous snake square
 				#the next snake square will be update after the if block
 				#the entity list will also be updated
@@ -115,6 +116,7 @@ class Snake(object):
 		self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
 		#update ent list 
 		ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
+
 		return ent_list
 
 		
@@ -128,6 +130,8 @@ class Apple(object):
 	Eating an apple should increase snake length and increase score."""
 	ent_type = "Apple" #it's casting to Rectangle
 	grid_position = []
+	#store rectangle
+	rectangle = False
 
 	def __init__(self, win, occupied_spaces, color="red"):
 		"""constructor"""
@@ -138,7 +142,7 @@ class Apple(object):
 
 		# Customize and draw apple
 		self.grid_position = guess
-		apple = graphics_handler.draw_square_from_grid(win, guess, color)
+		self.rectangle = graphics_handler.draw_square_from_grid(win, guess, color)
 		# print(type(apple))
 
 
