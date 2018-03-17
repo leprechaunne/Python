@@ -97,12 +97,12 @@ class Snake(object):
 
 				#move
 				#grid coords
-				new_grid_coords = [next_grid_position[0], next_grid_position[1]]
+				# new_grid_coords = [next_grid_position[0], next_grid_position[1]]
 				#concatenate lists
-				print(self.grid_position_record, "\t", new_grid_coords)
-				self.grid_position_record = add_nested_list_to_front(new_grid_coords, self.grid_position_record)
+				print(self.grid_position_record, "\t", next_grid_position)
+				self.grid_position_record = add_nested_list_to_front(next_grid_position, self.grid_position_record)
 				#rectangle save
-				new_head = graphics_handler.draw_square_from_grid(win, new_grid_coords, self.color)
+				new_head = graphics_handler.draw_square_from_grid(win, next_grid_position, self.color)
 				self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
 				#update ent list 
 				ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
@@ -124,14 +124,14 @@ class Snake(object):
 			rectangle_to_teardown.undraw()
 			#move
 			#grid coords
-			new_grid_coords = [next_grid_position[0], next_grid_position[1]]
+			# new_grid_coords = [next_grid_position[0], next_grid_position[1]]
 
-			print(self.grid_position_record, "\t", new_grid_coords)
+			print(self.grid_position_record, "\t", next_grid_position)
 			#concatenate lists
-			self.grid_position_record = add_nested_list_to_front(new_grid_coords, self.grid_position_record)
+			self.grid_position_record = add_nested_list_to_front(next_grid_position, self.grid_position_record)
 			# print(self.grid_position_record)
 			#rectangle save
-			new_head = graphics_handler.draw_square_from_grid(win, new_grid_coords, self.color)
+			new_head = graphics_handler.draw_square_from_grid(win, next_grid_position, self.color)
 			self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
 			#update ent list 
 			ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
