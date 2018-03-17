@@ -53,7 +53,7 @@ class Snake(object):
 				#		# mathematically speaking, log2(next_power_of_2) = i
 		self.direction = randint(0, 3)
 
-	def move_direction(self, win, ent_list):
+	def move_direction(self, win, ent_grid):
 		"""Called upon moving snake"""
 		#check for apple collision
 		###check for next position
@@ -75,7 +75,7 @@ class Snake(object):
 		next_grid_position = [current_grid_position[0] + xmod, current_grid_position[1] + ymod]
 		
 		try: 
-			next_ent = ent_list[next_grid_position[1]][next_grid_position[0]]
+			next_ent = ent_grid[next_grid_position[1]][next_grid_position[0]]
 		except Exception: 
 			next_ent = False
 		
@@ -105,9 +105,9 @@ class Snake(object):
 				new_head = graphics_handler.draw_square_from_grid(win, next_grid_position, self.color)
 				self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
 				#update ent list 
-				ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
+				ent_grid[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
 
-				return ent_list
+				return ent_grid
 
 
 		else:
@@ -117,7 +117,7 @@ class Snake(object):
 			p1x, p1y = int(p1.getX()), int(p1.getY()) 
 			[g1x, g1y] = graphics_handler.coords_to_grid(p1x, p1y)
 			#remove from entlist
-			ent_list[g1y][g1x] = False
+			ent_grid[g1y][g1x] = False
 			#remove from grids coords list
 			# self.grid_position_record.pop()
 			#undraw
@@ -134,9 +134,9 @@ class Snake(object):
 			new_head = graphics_handler.draw_square_from_grid(win, next_grid_position, self.color)
 			self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
 			#update ent list 
-			ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
+			ent_grid[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
 
-			return ent_list
+			return ent_grid
 
 		
 
@@ -165,10 +165,10 @@ class Apple(object):
 		# print(type(apple))
 
 
-def add_to_entity_list(obj, ent_list, x, y, tag):
+def add_to_entity_list(obj, ent_grid, x, y, tag):
 	""""A list of every gridspace, with the information of a string tag and the object"""
-	ent_list[y][x] = [tag, obj]
-	return ent_list
+	ent_grid[y][x] = [tag, obj]
+	return ent_grid
 
 def add_nested_list_to_front(new_top_list, list_of_lists):
 	new_list_of_lists = []

@@ -26,13 +26,13 @@ def main():
 	# Once the user presses enter, build game board
 	graphics_handler.generate_game_board(win)
 	#building grid 2d list to hand to entities for optimized collision detection
-	entity_list = graphics_handler.create_entity_list(win)
+	entity_grid = graphics_handler.create_entity_grid(win)
 
 	#CODE TO READ INPUT AND ALTER SNAKE AND BOARD
 	#build snake(s)
 	player1 = entities.Snake(win)
 	apple = entities.Apple(win, player1.grid_position_record)
-	entities.add_to_entity_list(apple, entity_list, apple.grid_position[0], apple.grid_position[1], "Apple")
+	entities.add_to_entity_grid(apple, entity_grid, apple.grid_position[0], apple.grid_position[1], "Apple")
 
 	game_over = False
 	ticks_passed = 0
@@ -54,7 +54,7 @@ def main():
 
 		#Proceeding after input handled
 		# print(ticks_passed, ":\t", player1.direction)
-		entity_list = player1.move_direction(win, entity_list)
+		entity_grid = player1.move_direction(win, entity_grid)
 		###############################################################################
 		##############################################################################
 		#					DO NOT FORGET TO RETURN MODIFIED ENTITY LIST
