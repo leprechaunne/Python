@@ -71,6 +71,7 @@ class Snake(object):
 			raise Exception("Snake.direction must be 0-3.")
 
 		current_grid_position = self.grid_position_record[0]
+		# print(current_grid_position)
 		next_grid_position = [current_grid_position[0] + xmod, current_grid_position[1] + ymod]
 		
 		try: 
@@ -79,6 +80,7 @@ class Snake(object):
 			next_ent = False
 		
 		# print(type(next_ent))
+		# print(self.grid_position_record)
 
 		if next_ent:
 			#code for collision
@@ -92,6 +94,22 @@ class Snake(object):
 				#update length variable and score
 				self.length += 1
 				self.score += 50
+
+				#move
+				#grid coords
+				new_grid_coords = [next_grid_position[0], next_grid_position[1]]
+				#concatenate lists
+				print(self.grid_position_record, "\t", new_grid_coords)
+				self.grid_position_record = add_nested_list_to_front(new_grid_coords, self.grid_position_record)
+				#rectangle save
+				new_head = graphics_handler.draw_square_from_grid(win, new_grid_coords, self.color)
+				self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
+				#update ent list 
+				ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
+
+				return ent_list
+
+
 		else:
 			#no collision, will move, delete last square to maintain length
 			rectangle_to_teardown = self.rectangle_record.pop()
@@ -101,23 +119,24 @@ class Snake(object):
 			#remove from entlist
 			ent_list[g1y][g1x] = False
 			#remove from grids coords list
-			self.grid_position_record.pop()
+			# self.grid_position_record.pop()
 			#undraw
 			rectangle_to_teardown.undraw()
+			#move
+			#grid coords
+			new_grid_coords = [next_grid_position[0], next_grid_position[1]]
 
-		#move
-		#grid coords
-		new_grid_coords = [next_grid_position[0], next_grid_position[1]]
-		#concatenate lists
-		self.grid_position_record = add_nested_list_to_front(new_grid_coords, self.grid_position_record)
-		# print(self.grid_position_record)
-		#rectangle save
-		new_head = graphics_handler.draw_square_from_grid(win, new_grid_coords, self.color)
-		self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
-		#update ent list 
-		ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
+			print(self.grid_position_record, "\t", new_grid_coords)
+			#concatenate lists
+			self.grid_position_record = add_nested_list_to_front(new_grid_coords, self.grid_position_record)
+			# print(self.grid_position_record)
+			#rectangle save
+			new_head = graphics_handler.draw_square_from_grid(win, new_grid_coords, self.color)
+			self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
+			#update ent list 
+			ent_list[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
 
-		return ent_list
+			return ent_list
 
 		
 
@@ -152,8 +171,11 @@ def add_to_entity_list(obj, ent_list, x, y, tag):
 	return ent_list
 
 def add_nested_list_to_front(new_top_list, list_of_lists):
-	new_list_of_lists = [new_top_list]
+	new_list_of_lists = []
+	new_list_of_lists.append(False)
+	new_list_of_lists[0] = new_top_list
 	for index in range(1, len(list_of_lists)):
+		new_list_of_lists.append(False)
 		new_list_of_lists[index] = list_of_lists[index-1]
 
 	return new_list_of_lists
