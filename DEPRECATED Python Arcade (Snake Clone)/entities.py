@@ -100,12 +100,12 @@ class Snake(object):
 				# new_grid_coords = [next_grid_position[0], next_grid_position[1]]
 				#concatenate lists
 				print(self.grid_position_record, "\t", next_grid_position)
-				self.grid_position_record = add_nested_list_to_front(next_grid_position, self.grid_position_record)
+				self.grid_position_record.append(next_grid_position)
 				#rectangle save
 				new_head = graphics_handler.draw_square_from_grid(win, next_grid_position, self.color)
-				self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
+				self.rectangle_record.append(new_head)
 				#update ent list 
-				ent_grid[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
+				ent_grid[next_grid_position[1]][next_grid_position[0]] = ["Snake", new_head]
 
 				return ent_grid
 
@@ -134,7 +134,7 @@ class Snake(object):
 			new_head = graphics_handler.draw_square_from_grid(win, next_grid_position, self.color)
 			self.rectangle_record = add_nested_list_to_front(new_head, self.rectangle_record)
 			#update ent list 
-			ent_grid[new_grid_coords[1]][new_grid_coords[0]] = ["Snake", new_head]
+			ent_grid[next_grid_position[1]][next_grid_position[0]] = ["Snake", new_head]
 
 			return ent_grid
 
@@ -165,7 +165,7 @@ class Apple(object):
 		# print(type(apple))
 
 
-def add_to_entity_list(obj, ent_grid, x, y, tag):
+def add_to_entity_grid(obj, ent_grid, x, y, tag):
 	""""A list of every gridspace, with the information of a string tag and the object"""
 	ent_grid[y][x] = [tag, obj]
 	return ent_grid

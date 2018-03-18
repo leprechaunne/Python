@@ -158,7 +158,7 @@ def draw_square_from_grid(win, grid_space, color="white"):
 	square.draw(win)
 	return square
 
-def create_entity_list(win):
+def create_entity_grid(win):
 	""""A list of every gridspace, with the information of a string tag and the object"""
 	#all empty grids should be false
 	ent_list = []
