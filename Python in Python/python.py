@@ -4,11 +4,21 @@ More of a test of ability for large projects than anything."""
 from graphics import *
 from math import floor
 from interface import *
+from time import sleep
 
-
+#	grid variables
 play_area_side_size = 500 	#px, if you change this, you will need to alter the title screen
-grid_unit_size = 50 	#px, the size of each 'pixel' (as in the size of a snake body part or apple)
-grid_cells_per_side = floor(play_area_side_size / grid_unit_size) #Ideally grid unit size would be a factor of play area side size
+grid_unit_size = 50 		#px, the size of each 'pixel' (as in the size of a snake body part or apple)
+grid_cells_per_side = floor(play_area_side_size / grid_unit_size) 		#Ideally grid unit size would be a factor of play area side size
+#	time variables
+tick_length = .5 			#seconds
+#	input dictionary
+input_dictionary = {
+	"up": 		["Up", "w"],
+	"down": 	["Down", "s"],
+	"left": 	["Left", "a"],
+	"right":	["Right", "d"]
+	}
 
 def main():
 	#create graphic window
@@ -27,12 +37,23 @@ def main():
 
 	game_over = False		
 	while not game_over:
-		# print('.')
+		key_pressed = win.checkKey()
+
+		#evaluate input
+		x_mod, y_mod = 0, 0
+
+		if key_pressed in input_dictionary("up"):
+			y_mod = 1
+		elif key_pressed in input_dictionary("down"):
+			y_mod = -1
+		elif key_pressed in input_dictionary("right"):
+			x_mod = 1
+		elif key_pressed in input_dictionary("left"):
+			x_mod = -1
+
 		
-
-
-
-		game_over = True
+		# game_over = True
+		sleep(tick_length)
 
 	#if repeat:
 	#	main()
