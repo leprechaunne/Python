@@ -31,6 +31,20 @@ def init():
 	win.setBackground("black")
 	win.setCoords(0,0, grid_cells_per_side, grid_cells_per_side)
 
-	
+	#entity grid
+	for y in range(grid_cells_per_side):
+		#reset row for next run
+		row = [False]
 
+		for x in range(1, grid_cells_per_side):
+			row.append(False)
 
+		#instatiate for first row
+		if y == 0:
+			entity_grid = [row]
+		#append for every other row
+		else:
+			entity_grid.append(row)
+
+	# for row in range(len(entity_grid)):
+	# 	print(entity_grid[row])

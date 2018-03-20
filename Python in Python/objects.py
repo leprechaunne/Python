@@ -12,7 +12,7 @@ class Snake():
 	#if the directions become heavily used, you can make a dictionary to go from
 		#number to its corollary constant
 		
-	def __init__(self, win, color="green"):
+	def __init__(self, color="green"):
 		self.color = color
 		self.length = 1
 		self.score = 0
