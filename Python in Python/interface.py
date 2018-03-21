@@ -28,7 +28,7 @@ def run_title_screen():
 
 	#subtitle
 	##################################################
-	subtitle_anchor_x, subtitle_anchor_y = title_anchor_x, title_anchor_y -1
+	subtitle_anchor_x, subtitle_anchor_y = title_anchor_x, title_anchor_y - 4
 	#create text object
 	subtitle = Text(Point(subtitle_anchor_x, subtitle_anchor_y), "PRESS ENTER TO CONTINUE")
 	subtitle.setTextColor("white")
@@ -43,3 +43,21 @@ def teardown_window():
 	item_list_length = len(settings.win.items)
 	for i in range(item_list_length):
 		settings.win.items[0].undraw()
+
+
+
+
+def test_grid():
+	white = True
+
+	for y in range(settings.grid_cells_per_side):
+		white = not white
+		for x in range(settings.grid_cells_per_side):
+			if white:
+				rect = Rectangle(Point(y,x), Point(y+1,x+1))
+				rect.setFill("grey")
+				rect.draw(settings.win)
+
+			white = not white
+
+

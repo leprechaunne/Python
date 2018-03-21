@@ -4,6 +4,7 @@ More of a test of ability for large projects than anything."""
 import settings
 from graphics import *
 from interface import *
+from objects import *
 from time import sleep
 
 # Frequently used objects (such as the game window) and
@@ -25,7 +26,10 @@ def main():
 	#####################################################
 	# print(type(not game_over))
 
-	game_over = False		
+	game_over = False
+	test_grid()
+	player_one = Snake()
+
 	while not game_over:
 		key_pressed = settings.win.checkKey()
 
@@ -41,6 +45,7 @@ def main():
 		elif key_pressed in settings.input_dictionary["left"]:
 			x_mod = -1
 
+		
 		
 		# game_over = True
 		sleep(settings.tick_length)

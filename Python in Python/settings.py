@@ -15,7 +15,7 @@ def init():
 
 	#	grid variables
 	play_area_side_size = 500 	
-	grid_unit_size = 50 		
+	grid_unit_size = 10		
 	grid_cells_per_side = floor(play_area_side_size / grid_unit_size) 		
 	#	time variables
 	tick_length = .5 			#seconds
