@@ -50,4 +50,4 @@ def init():
 def print_entity_grid():
 	for row in range(len(entity_grid)):
 		print(entity_grid[row][:])
-	print("\n\nentitygridover")
+	# print("\n\nentitygridover")
