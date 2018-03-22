@@ -53,6 +53,7 @@ class Snake():
 
 			head.draw(settings.win)
 			self.rectangle = head
+			settings.entity_grid[y][x] = self
 
 		
 	def __init__(self, color="green"):
@@ -91,15 +92,16 @@ class Snake():
 		next_y = y + delta_y
 		collision = type(settings.entity_grid[next_y][next_x])
 		# print(collision)
-		print(f"[{x},{y}], [{next_x}, {next_y}]")
+		# print(f"[{x},{y}], [{next_x}, {next_y}]")
 
 
 		if collision == type(False):
+			print(type(settings.entity_grid[y][x]))
 			try:
 				#undraw previous segment
 				settings.entity_grid[y][x].rectangle.undraw()
 			except Exception:
-				pass
+				print(Exception)
 			#draw new segment and replace
 			new_head = self.SnakeSegment(next_x, next_y)
 			position = Coordinate(next_x, next_y)
