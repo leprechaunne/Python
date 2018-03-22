@@ -27,25 +27,25 @@ def main():
 	# print(type(not game_over))
 
 	game_over = False
-	test_grid()
+	# test_grid()
 	player_one = Snake()
 
 	while not game_over:
 		key_pressed = settings.win.checkKey()
 
 		#evaluate input
-		x_mod, y_mod = 0, 0
+		delta_x, delta_y = 0, 0
 
 		if key_pressed in settings.input_dictionary["up"]:
-			y_mod = 1
+			player_one.direction = player_one.direction_dict["up"]
 		elif key_pressed in settings.input_dictionary["down"]:
-			y_mod = -1
-		elif key_pressed in settings.input_dictionary["right"]:
-			x_mod = 1
+			player_one.direction = player_one.direction_dict["down"]
 		elif key_pressed in settings.input_dictionary["left"]:
-			x_mod = -1
+			player_one.direction = player_one.direction_dict["left"]
+		elif key_pressed in settings.input_dictionary["right"]:
+			player_one.direction = player_one.direction_dict["right"]
 
-		
+		player_one.move()
 		
 		# game_over = True
 		sleep(settings.tick_length)

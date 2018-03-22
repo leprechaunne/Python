@@ -59,5 +59,3 @@ def test_grid():
 				rect.draw(settings.win)
 
 			white = not white
-
-
