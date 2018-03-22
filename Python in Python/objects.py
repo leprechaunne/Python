@@ -2,6 +2,7 @@ from math import floor
 from random import randint
 from graphics import *
 from interface import *
+from collections import deque
 import settings
 
 
@@ -15,21 +16,22 @@ class Coordinate():
 
 class Apple():
 	""" Simple red square that the snake wants to eat"""
-	def __init__(self, color="red"):
-		#find empty space
-		test_coords = [randint(0, settings.grid_cells_per_side), randint(0, settings.grid_cells_per_side)]
-		while settings.entity_grid[test_coords[1]][test_coords[0]]:
-			test_coords = [randint(0, settings.grid_cells_per_side), randint(0, settings.grid_cells_per_side)]
+	def __init__(self, override=False, color="red"):
+		if not override:
+			#find empty space
+			test_coords = [randint(0, settings.grid_cells_per_side - 1), randint(0, settings.grid_cells_per_side - 1)]
+			while settings.entity_grid[test_coords[1]][test_coords[0]]:
+				test_coords = [randint(0, settings.grid_cells_per_side - 1), randint(0, settings.grid_cells_per_side - 1)]
 
-		coords = Coordinate(test_coords[0], test_coords[1])
+			coords = Coordinate(test_coords[0], test_coords[1])
 
-		p1 = Point(coords.x, coords.y)
-		p2 = Point(p1.getX() + 1, p1.getY() + 1)
-		apple = Rectangle(p1, p2)
-		apple.setFill(color)
-		apple.draw(settings.win)
-		self.rectangle = apple
-		settings.entity_grid[coords.y][coords.x] = self
+			p1 = Point(coords.x, coords.y)
+			p2 = Point(p1.getX() + 1, p1.getY() + 1)
+			apple = Rectangle(p1, p2)
+			apple.setFill(color)
+			apple.draw(settings.win)
+			self.rectangle = apple
+			settings.entity_grid[coords.y][coords.x] = self
 
 
 
@@ -59,6 +61,8 @@ class Snake():
 	class SnakeSegment():
 
 		def __init__(self, x, y, color="green"):
+			self.x = x
+			self.y = y
 			#draw first square
 			p1 = Point(x, y)
 			p2 = Point(p1.getX() + 1, p1.getY() + 1)
@@ -80,7 +84,9 @@ class Snake():
 		self.direction = randint(0,3)
 		#spawn in middle of grid
 		middle_square = floor(settings.grid_cells_per_side / 2)
-		self.grid_position_record = [Coordinate(middle_square, middle_square)]
+		middle_coord = Coordinate(middle_square, middle_square)
+		self.grid_position_record = deque([middle_coord])
+		self.head_position = middle_coord
 		settings.entity_grid[middle_square][middle_square] = self.SnakeSegment(middle_square, middle_square, self.color)
 
 
@@ -102,9 +108,8 @@ class Snake():
 			delta_x = 1
 			#print("moving")
 
-
-		x = self.grid_position_record[0].x
-		y = self.grid_position_record[0].y
+		x = self.head_position.x
+		y = self.head_position.y
 		next_x = x + delta_x
 		next_y = y + delta_y
 		collision = type(settings.entity_grid[next_y][next_x])
@@ -117,13 +122,29 @@ class Snake():
 			try:
 				#undraw previous segment
 				settings.entity_grid[y][x].rectangle.undraw()
+				self.grid_position_record.pop()
 			except Exception:
 				print(Exception)
 			settings.entity_grid[y][x] = False
 			#draw new segment and replace
 			new_head = self.SnakeSegment(next_x, next_y)
 			position = Coordinate(next_x, next_y)
+			self.head_position = position
 			#replace last one
-			self.grid_position_record[self.length - 1] = position
-		elif collision == type(Apple()):
-			print("APPLE!!!!")
+			self.grid_position_record.appendleft(position)
+		elif collision == type(Apple(True)):
+			# print("APPLE!!!!")
+			try:
+				#undraw previous segment
+				settings.entity_grid[y][x].rectangle.undraw()
+			except Exception:
+				print(Exception)
+			settings.entity_grid[y][x] = False
+
+			#replace apple with snake
+			head = self.SnakeSegment(next_x, next_y, self.color)
+			self.head_position = head
+			self.grid_position_record.appendleft(head)
+			apple = Apple()
+			
+
