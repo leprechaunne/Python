@@ -40,13 +40,13 @@ def main():
 		#evaluate input
 		delta_x, delta_y = 0, 0
 
-		if key_pressed in settings.input_dictionary["up"]:
+		if key_pressed in settings.input_dictionary["up"] and not player_one.direction == Snake.direction_dict["down"]:
 			player_one.direction = player_one.direction_dict["up"]
-		elif key_pressed in settings.input_dictionary["down"]:
+		elif key_pressed in settings.input_dictionary["down"] and not player_one.direction == Snake.direction_dict["up"]:
 			player_one.direction = player_one.direction_dict["down"]
-		elif key_pressed in settings.input_dictionary["left"]:
+		elif key_pressed in settings.input_dictionary["left"] and not player_one.direction == Snake.direction_dict["right"]:
 			player_one.direction = player_one.direction_dict["left"]
-		elif key_pressed in settings.input_dictionary["right"]:
+		elif key_pressed in settings.input_dictionary["right"] and not player_one.direction == Snake.direction_dict["left"]:
 			player_one.direction = player_one.direction_dict["right"]
 
 		player_one.move()
