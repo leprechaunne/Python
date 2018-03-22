@@ -119,6 +119,7 @@ class Snake():
 				settings.entity_grid[y][x].rectangle.undraw()
 			except Exception:
 				print(Exception)
+			settings.entity_grid[y][x] = False
 			#draw new segment and replace
 			new_head = self.SnakeSegment(next_x, next_y)
 			position = Coordinate(next_x, next_y)

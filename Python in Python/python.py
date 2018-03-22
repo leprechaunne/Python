@@ -51,7 +51,7 @@ def main():
 
 		player_one.move()
 		
-		settings.print_entity_grid()
+		# settings.print_entity_grid()
 		# game_over = True
 		sleep(settings.tick_length)
 
