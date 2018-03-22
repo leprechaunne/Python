@@ -21,10 +21,10 @@ def init():
 	tick_length = .5 			#seconds
 	#	input dictionary
 	input_dictionary = {
-		"up": 		["Up", "w"],
-		"down": 	["Down", "s"],
-		"left": 	["Left", "a"],
-		"right":	["Right", "d"]
+		"up": 		["Up", "w", "W"],
+		"down": 	["Down", "s", "S"],
+		"left": 	["Left", "a", "A"],
+		"right":	["Right", "d", "D"]
 		}
 
 	win = GraphWin("Python in Python", play_area_side_size, play_area_side_size)
@@ -46,5 +46,8 @@ def init():
 		else:
 			entity_grid.append(row)
 
-	# for row in range(len(entity_grid)):
-	# 	print(entity_grid[row])
+
+def print_entity_grid():
+	for row in range(len(entity_grid)):
+		print(entity_grid[row][:])
+	print("\n\nentitygridover")

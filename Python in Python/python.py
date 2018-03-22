@@ -28,11 +28,15 @@ def main():
 
 	game_over = False
 	# test_grid()
+	#player one 
 	player_one = Snake()
+	#first apple
+	apple = Apple()
 
 	while not game_over:
 		key_pressed = settings.win.checkKey()
-
+		# key_pressed.lower()
+		# print(f":{key_pressed}:")
 		#evaluate input
 		delta_x, delta_y = 0, 0
 
@@ -47,6 +51,7 @@ def main():
 
 		player_one.move()
 		
+		settings.print_entity_grid()
 		# game_over = True
 		sleep(settings.tick_length)
 

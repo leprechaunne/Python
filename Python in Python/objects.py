@@ -13,6 +13,23 @@ class Coordinate():
 		self.y = y
 
 
+class Apple():
+	""" Simple red square that the snake wants to eat"""
+	def __init__(self, color="red"):
+		#find empty space
+		test_coords = [randint(0, settings.grid_cells_per_side), randint(0, settings.grid_cells_per_side)]
+		while settings.entity_grid[test_coords[1]][test_coords[0]]:
+			test_coords = [randint(0, settings.grid_cells_per_side), randint(0, settings.grid_cells_per_side)]
+
+		coords = Coordinate(test_coords[0], test_coords[1])
+
+		p1 = Point(coords.x, coords.y)
+		p2 = Point(p1.getX() + 1, p1.getY() + 1)
+		apple = Rectangle(p1, p2)
+		apple.setFill(color)
+		apple.draw(settings.win)
+		self.rectangle = apple
+		settings.entity_grid[coords.y][coords.x] = self
 
 
 
@@ -96,7 +113,7 @@ class Snake():
 
 
 		if collision == type(False):
-			print(type(settings.entity_grid[y][x]))
+			# print(type(settings.entity_grid[y][x]))
 			try:
 				#undraw previous segment
 				settings.entity_grid[y][x].rectangle.undraw()
@@ -107,6 +124,5 @@ class Snake():
 			position = Coordinate(next_x, next_y)
 			#replace last one
 			self.grid_position_record[self.length - 1] = position
-
-		# elif collision == type(Apple()):
-			# pass
+		elif collision == type(Apple()):
+			print("APPLE!!!!")
