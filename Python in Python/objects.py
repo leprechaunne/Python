@@ -112,7 +112,10 @@ class Snake():
 		y = self.head_position.y
 		next_x = x + delta_x
 		next_y = y + delta_y
-		collision = type(settings.entity_grid[next_y][next_x])
+		try:
+			collision = type(settings.entity_grid[next_y][next_x])
+		except Exception:
+			
 		# print(collision)
 		# print(f"[{x},{y}], [{next_x}, {next_y}]")
 
