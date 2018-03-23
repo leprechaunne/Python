@@ -115,7 +115,7 @@ class Snake():
 		try:
 			collision = type(settings.entity_grid[next_y][next_x])
 		except Exception:
-			
+			game_over("out of bounds")
 		# print(collision)
 		# print(f"[{x},{y}], [{next_x}, {next_y}]")
 
@@ -139,8 +139,9 @@ class Snake():
 		elif collision == type(Apple(True)):
 			# print("APPLE!!!!")
 			try:
-				#undraw previous segment
+				#undraw apple
 				settings.entity_grid[next_y][next_x].rectangle.undraw()
+				pass
 			except Exception:
 				print(Exception)
 			# settings.entity_grid[y][x] = False
@@ -149,6 +150,17 @@ class Snake():
 			head = self.SnakeSegment(next_x, next_y, self.color)
 			self.head_position = head
 			self.grid_position_record.appendleft(head)
+			#add 2 more apples
+			# new_tail_1 = self.SnakeSegment(x - delta_x, y - delta_y, self.color)
+			# # self.head_position = new_tail_1
+			# self.grid_position_record.append(new_tail_1)
+
+			# new_tail_2 = self.SnakeSegment(x - (delta_x * 2), y - (delta_y * 2), self.color)
+			# # self.head_position = new_tail_2
+			# self.grid_position_record.append(new_tail_2)
+
 			apple = Apple()
+
+			settings.tick_length *= .75
 			
 

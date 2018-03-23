@@ -14,7 +14,7 @@ def init():
 	global entity_grid			#2D array used for collision detection
 
 	#	grid variables
-	play_area_side_size = 500 	
+	play_area_side_size = 300 	
 	grid_unit_size = 10		
 	grid_cells_per_side = floor(play_area_side_size / grid_unit_size) 		
 	#	time variables

@@ -55,7 +55,11 @@ def test_grid():
 		for x in range(settings.grid_cells_per_side):
 			if white:
 				rect = Rectangle(Point(y,x), Point(y+1,x+1))
-				rect.setFill("grey")
+				rect.setFill("#DF7D1E")
 				rect.draw(settings.win)
 
 			white = not white
+
+
+def game_over(loss_reason):
+	pass
