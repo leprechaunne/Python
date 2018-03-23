@@ -71,4 +71,4 @@ def test_grid():
 
 
 def game_over(loss_reason):
-	print("You lose bitch")
+	print(f"You lose bitch: {loss_reason}")
