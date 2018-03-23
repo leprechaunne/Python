@@ -12,6 +12,8 @@ def init():
 	global tick_length			#length of tick in seconds
 	global input_dictionary		#stores acceptable input and what they represent
 	global entity_grid			#2D array used for collision detection
+	global play_area_lower_left
+	global play_area_upper_right
 
 	#	grid variables
 	play_area_side_size = 300 	
@@ -27,7 +29,10 @@ def init():
 		"right":	["Right", "d", "D"]
 		}
 
-	win = GraphWin("Python in Python", play_area_side_size, play_area_side_size)
+	play_area_lower_left = [1,1]
+	play_area_upper_right = [grid_cells_per_side - 1, grid_cells_per_side - 1]
+
+	win = GraphWin("Python in Python", play_area_side_size, play_area_side_size + grid_unit_size * 2) 
 	win.setBackground("black")
 	win.setCoords(0,0, grid_cells_per_side, grid_cells_per_side)
 

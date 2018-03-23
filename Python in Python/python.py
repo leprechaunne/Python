@@ -25,6 +25,8 @@ def main():
 	#					Gameplay Loop					#
 	#####################################################
 	# print(type(not game_over))
+	setup_game_board()
+
 
 	game_over = False
 	# test_grid()

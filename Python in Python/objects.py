@@ -19,7 +19,7 @@ class Apple():
 	def __init__(self, override=False, color="red"):
 		if not override:
 			#find empty space
-			test_coords = [randint(0, settings.grid_cells_per_side - 1), randint(0, settings.grid_cells_per_side - 1)]
+			test_coords = [randint(0, settings.grid_cells_per_side - 1), randint(0, settings.grid_cells_per_side - 3)]
 			while settings.entity_grid[test_coords[1]][test_coords[0]]:
 				test_coords = [randint(0, settings.grid_cells_per_side - 1), randint(0, settings.grid_cells_per_side - 1)]
 
@@ -112,10 +112,17 @@ class Snake():
 		y = self.head_position.y
 		next_x = x + delta_x
 		next_y = y + delta_y
+
+		x_fail = not (next_x in range(settings.play_area_lower_left[0], settings.play_area_upper_right[0]))
+		y_fail = not (next_y in range(settings.play_area_lower_left[1], settings.play_area_upper_right[1] - 2))
+
+		if x_fail or y_fail:
+			game_over("OOB")
+
 		try:
-			collision = type(settings.entity_grid[next_y][next_x])
+			collision = type(settings.entity_grid[next_y][next_x]) #this fails if a snake segment touches another
 		except Exception:
-			game_over("out of bounds")
+			game_over("COLLISION")
 		# print(collision)
 		# print(f"[{x},{y}], [{next_x}, {next_y}]")
 

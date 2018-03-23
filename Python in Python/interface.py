@@ -23,7 +23,7 @@ def run_title_screen():
 	# title_anchor = Point(win.)
 	title = Text(Point(title_anchor_x, title_anchor_y), "Python in Python")
 	title.setTextColor("white")
-	title.setSize(36)
+	title.setSize(24)
 
 
 	#subtitle
@@ -32,12 +32,21 @@ def run_title_screen():
 	#create text object
 	subtitle = Text(Point(subtitle_anchor_x, subtitle_anchor_y), "PRESS ENTER TO CONTINUE")
 	subtitle.setTextColor("white")
-	subtitle.setSize(12)
+	subtitle.setSize(8)
 
 
 	title.draw(settings.win)
 	subtitle.draw(settings.win)
 	wait_for_key(['Return'])
+
+def setup_game_board():
+	p1 = settings.grid_cells_per_side - 1
+	p2 = settings.grid_cells_per_side - 3
+	border = Rectangle(Point(1,1), Point(p1, p2))
+	border.setWidth(1)
+	border.setOutline("white")
+	border.draw(settings.win)
+
 
 def teardown_window():
 	item_list_length = len(settings.win.items)
@@ -62,4 +71,4 @@ def test_grid():
 
 
 def game_over(loss_reason):
-	pass
+	print("You lose bitch")
