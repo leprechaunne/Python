@@ -136,10 +136,10 @@ class Snake():
 			# print("APPLE!!!!")
 			try:
 				#undraw previous segment
-				settings.entity_grid[y][x].rectangle.undraw()
+				settings.entity_grid[next_y][next_x].rectangle.undraw()
 			except Exception:
 				print(Exception)
-			settings.entity_grid[y][x] = False
+			# settings.entity_grid[y][x] = False
 
 			#replace apple with snake
 			head = self.SnakeSegment(next_x, next_y, self.color)
