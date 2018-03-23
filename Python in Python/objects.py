@@ -120,18 +120,19 @@ class Snake():
 		if collision == type(False):
 			# print(type(settings.entity_grid[y][x]))
 			try:
-				#undraw previous segment
-				settings.entity_grid[y][x].rectangle.undraw()
-				self.grid_position_record.pop()
+				#undraw FURTHEST segment
+				tail_end = self.grid_position_record.pop()
+				settings.entity_grid[tail_end.y][tail_end.x].rectangle.undraw()
+				settings.entity_grid[tail_end.y][tail_end.x] = False #old spot is removed
 			except Exception:
 				print(Exception)
-			settings.entity_grid[y][x] = False
+
 			#draw new segment and replace
 			new_head = self.SnakeSegment(next_x, next_y)
 			position = Coordinate(next_x, next_y)
 			self.head_position = position
 			#replace last one
-			self.grid_position_record.appendleft(position)
+			self.grid_position_record.appendleft(position)		#put one on left
 		elif collision == type(Apple(True)):
 			# print("APPLE!!!!")
 			try:
