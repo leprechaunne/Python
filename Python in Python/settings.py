@@ -14,6 +14,7 @@ def init():
 	global entity_grid			#2D array used for collision detection
 	global play_area_lower_left
 	global play_area_upper_right
+	global game_over
 
 	#	grid variables
 	play_area_side_size = 300 	
@@ -35,6 +36,9 @@ def init():
 	win = GraphWin("Python in Python", play_area_side_size, play_area_side_size + grid_unit_size * 2) 
 	win.setBackground("black")
 	win.setCoords(0,0, grid_cells_per_side, grid_cells_per_side)
+
+	game_over = False
+
 
 	#entity grid
 	for y in range(grid_cells_per_side):

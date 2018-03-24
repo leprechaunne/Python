@@ -19,9 +19,9 @@ class Apple():
 	def __init__(self, override=False, color="red"):
 		if not override:
 			#find empty space
-			test_coords = [randint(0, settings.grid_cells_per_side - 1), randint(0, settings.grid_cells_per_side - 3)]
+			test_coords = [randint(1, settings.grid_cells_per_side - 2), randint(1, settings.grid_cells_per_side - 4)]
 			while settings.entity_grid[test_coords[1]][test_coords[0]]:
-				test_coords = [randint(0, settings.grid_cells_per_side - 1), randint(0, settings.grid_cells_per_side - 1)]
+				test_coords = [randint(1, settings.grid_cells_per_side - 2), randint(1, settings.grid_cells_per_side - 4)]
 
 			coords = Coordinate(test_coords[0], test_coords[1])
 
@@ -60,21 +60,22 @@ class Snake():
 
 	class SnakeSegment():
 
-		def __init__(self, x, y, color="green"):
-			self.x = x
-			self.y = y
-			#draw first square
-			p1 = Point(x, y)
-			p2 = Point(p1.getX() + 1, p1.getY() + 1)
-			head = Rectangle(p1, p2)
-			head.setFill(color)
-			head.setOutline("black")
-			head.setWidth(1)
+		def __init__(self, x, y, color="green", override=False):
+			if not override:
+				self.x = x
+				self.y = y
+				#draw first square
+				p1 = Point(x, y)
+				p2 = Point(p1.getX() + 1, p1.getY() + 1)
+				head = Rectangle(p1, p2)
+				head.setFill(color)
+				head.setOutline("black")
+				head.setWidth(1)
 
 
-			head.draw(settings.win)
-			self.rectangle = head
-			settings.entity_grid[y][x] = self
+				head.draw(settings.win)
+				self.rectangle = head
+				settings.entity_grid[y][x] = self
 
 		
 	def __init__(self, color="green"):
@@ -122,7 +123,7 @@ class Snake():
 		try:
 			collision = type(settings.entity_grid[next_y][next_x]) #this fails if a snake segment touches another
 		except Exception:
-			game_over("COLLISION")
+			game_over("LEFT SCREEN")
 		# print(collision)
 		# print(f"[{x},{y}], [{next_x}, {next_y}]")
 
@@ -143,7 +144,7 @@ class Snake():
 			self.head_position = position
 			#replace last one
 			self.grid_position_record.appendleft(position)		#put one on left
-		elif collision == type(Apple(True)):
+		elif collision == type(Apple(override=True)):
 			# print("APPLE!!!!")
 			try:
 				#undraw apple
@@ -169,5 +170,6 @@ class Snake():
 			apple = Apple()
 
 			settings.tick_length *= .75
-			
+		elif collision == type(Snake.SnakeSegment(0,0,override=True)):
+				game_over("COLLISION")
 

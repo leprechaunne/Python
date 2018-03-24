@@ -28,20 +28,20 @@ def main():
 	setup_game_board()
 
 
-	game_over = False
+	settings.game_over = False
 	# test_grid()
 	#player one 
 	player_one = Snake()
 	#first apple
 	apple = Apple()
 
-	while not game_over:
+
+	while not settings.game_over:
 		key_pressed = settings.win.checkKey()
 		# key_pressed.lower()
 		# print(f":{key_pressed}:")
 		#evaluate input
 		# delta_x, delta_y = 0, 0
-
 		if key_pressed in settings.input_dictionary["up"] and not player_one.direction == Snake.direction_dict["down"]:
 			player_one.direction = player_one.direction_dict["up"]
 		elif key_pressed in settings.input_dictionary["down"] and not player_one.direction == Snake.direction_dict["up"]:
