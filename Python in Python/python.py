@@ -39,7 +39,7 @@ def main():
 	while not settings.game_over:
 		key_pressed = settings.win.checkKey()
 		# key_pressed.lower()
-		# print(f":{key_pressed}:")
+		print(f":{key_pressed}:")
 		#evaluate input
 		# delta_x, delta_y = 0, 0
 		if key_pressed in settings.input_dictionary["up"] and not player_one.direction == Snake.direction_dict["down"]:
